@@ -1,0 +1,28 @@
+// RESOLUÇÃO EXECÍCIOS.
+
+let array
+console.log('a. ', array) // a. undefined
+
+array = null
+console.log('b. ', array) // b. null
+
+array = [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+console.log('c. ', array.length) // c. 11
+
+let i = 0
+console.log('d. ', array[i]) // d. 3 -- refere-se já a array tendo sido preenchida e i=0, sendo o indíce da primeira posição.
+
+array[i+1] = 19
+console.log('e. ', array) // e. (11) [3, 19, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+const valor = array[i+6]
+console.log('f. ', valor) // f. 9 (i=0, posição 0 do indíce + 6)
+
+// SEGUNDO EXERCÍCIO
+
+const frase = prompt("Digite uma frase")
+console.log(frase.toUpperCase().replaceAll("A", "I"), frase.length)
+
+// A frase digitada em MAIÚSCULAS e todos os A trocados por I e no final o tamanho da frase.
+
+Qual será o valor impresso no console se a entrada do usuário for: "Subi num ônibus em Marrocos"? - 27
