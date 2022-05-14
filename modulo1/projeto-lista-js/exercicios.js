@@ -144,22 +144,23 @@ function retornaUltimoElemento(array) {
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
-  
-  // const primeiro = array[0]
-  // const indexUltimo = (array.lenght)
-  // const ultimo = array[indexUltimo]
-  
-  // console.log (primeiro)
-  // console.log (indexUltimo)
-  // console.log (ultimo)
-  
-  // array.pop()
-  // array.push(primeiro)
-  // array [0] = ultimo
-  // console.log (array)
 
+  const primeiraPosicao = array[0] // Primeira posição do array e valor.  
+  const tamanhoArray = (array.length)-1 // Pegando o tamanho do array.
+  const ultimaPosicao = array[tamanhoArray] // Guardando o conteudo da ultima posicao do array
+  
+  console.log(primeiraPosicao)
+  console.log(ultimaPosicao)
+  console.log(array)
+
+  array[0] = ultimaPosicao
+  array[tamanhoArray] = primeiraPosicao
+  console.log(array)
+
+  return array
+
+// TRAVEI NESSE EXERCÍCIO PORQUE TINHA APAGADO O COLCHETE DO FINAL DA FUNÇÃO PQP
 }
-
 // trocaPrimeiroEUltimo()
 
 // EXERCÍCIO 12
@@ -175,35 +176,60 @@ function checaIgualdadeDesconsiderandoCase(string1, string2) {
 // EXERCÍCIO 13
 function checaRenovacaoRG() {
   
-  // const anoAtual = parseInt(Prompt("Qual é o ano atual?"));
-  // const anoNascimento = parseInt(Prompt("Qual é o ano de seu nascimento?"))
-  // const anoEmissao = parseInt(Prompt("Qual é o ano da emissao de seu RG?"))
+  const anoAtual = prompt("Qual o ano atual?")
+  const anoNascimento = prompt("qual o ano de nascimento?")
+  const anoEmissao = prompt("Qual o ano de emissão do RG?")
 
-  // const checaAnos1 = (anoAtual - anoNascimento) <= 20 
-  // const checaAnos2 = (anoAtual - anoNascimento) <= 20 && =>50
-  // const checaAnos3 = (anoAtual - anoNascimento) => 50 
+  // SÓ FUNCIONOU O VERDINHO DEPOIS QUE COLOQUEI OS PROMPTS!!!
 
-  // const fazendoChecagem = checaAnos1 
+  const idade = (anoAtual - anoNascimento)
+  const idadeRenovaRG = (anoAtual - anoEmissao)
 
+  const renovaCarteira = (idade <= 20 && idadeRenovaRG >= 5) || (idade <= 50 && idadeRenovaRG >= 10) || (idade > 50 && idadeRenovaRG >= 15)
+  console.log(renovaCarteira)
+  
+  return renovaCarteira
 }
+
+checaRenovacaoRG() 
 
 // EXERCÍCIO 14
 function checaAnoBissexto(ano) {
   
-  // const checaAno1 = ano % 400
-  // const checaAno2 = ano % 4
-  // const checaAno3 = ano % 100
-  // const checaAno4 = ano % 4
-   
-  // const checa = (checaAno1==0) || (checaAno2==0 && checaAno3!=0) // LÓGICA BISSEXTO
-  // return checa
+  // ano % 400 = 0 e ano % 4 = 0, mas não pode ser ano%100!=0
+  // Esquentando a cuca, mas deu certo.
+
+  const checa = (ano%400==0) || (ano%4==0 && ano%100!==0) // LÓGICA BISSEXTO
+  console.log (checa)
+  return checa
 
 }
 
-checaAnoBissexto()
+// checaAnoBissexto()
 
 // EXERCÍCIO 15
 function checaValidadeInscricaoLabenu() {
-  // implemente sua lógica aqui
+
+  const idade = prompt("Tem mais de 18?");
+  const ensino = prompt("Você possui ensino médio completo?")
+  const disp = prompt("Você possui disponibilidade exclusiva durante os horários do curso?")
+
+  const idadeChecada = idade.toLowerCase().includes("sim")
+  const ensinoChecado = ensino.toLowerCase().includes("sim")
+  const dispChecado = disp.toLowerCase().includes("sim")
+  
+  // console.log(idadeChecada)
+  // console.log(ensinoChecado)
+  // console.log(dispChecado)
+  
+  const matricula = idadeChecada && ensinoChecado && dispChecado
+  
+  console.log(matricula)
+    
+  return matricula
+
+  // ERRO DE INTERPRETAÇÃO. ESTAVA PENSANDO EM PERGUNTAR A IDADE EM VEZ DE "SE É"
 
 }
+
+// checaValidadeInscricaoLabenu()
