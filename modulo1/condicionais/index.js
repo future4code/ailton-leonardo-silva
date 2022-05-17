@@ -108,7 +108,8 @@
                 if (categoria = 1) {
                         total = (quantidadeIngressos * precoSFCAT1 * 4.10)
                         console.log (`O total é ${total}`)
-                        return total
+                        return total        
+                        
                     } else if (categoria = 2) {
                         total = (quantidadeIngressos * precoSFCAT2 * 4.10)
                         return total
@@ -139,4 +140,4 @@
         // console.log(`Valor do Ingresso: R$${}`)
         console.log(`Valor Total: R$${total}`)
 
-        totalCompra(nome, tipoJogo, etapaJogo, categoria, quantidadeIngressos)
+        totalCompra(nome, tipoJogo, etapaJogo, categoria, quantidadeIngressos);
