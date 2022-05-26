@@ -1,17 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
 
+}
 
 
 header{
-    
-    width:100%;
-    position:static;
-    top: 0;
-    right: 0;
     text-align: justify;
     background: wheat;
     padding: 4px 4px ;
-    
+    width: 100vw;
 }
+
 
 
 body {
@@ -39,13 +40,11 @@ nav a:hover {
 }    
 
 footer{
-    position:static;
-    width: 100%;
-    text-align: center;
-    background: wheat;
-    padding: 4px 4px;
+    height: 6vh;
+    width: 100vw;
+    background-color: wheat;
     bottom: 0;
-    right: 0;
+    position: absolute;
 }
 
 
