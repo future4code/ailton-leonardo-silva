@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.container--tela {
+    background-color: white;
+    position: relative;
+    border: 2px solid black;
+    width: 100vw;
+    height: 100vw;
+    
+   
+}
+
+.container--header {
+    background-color: lightgrey;
+    border: 2px solid black;
+    position: relative;
+    width: 100vw;
+    height: 10vh;
+    padding-left: 4px;
+}
+
+h1,h3.mensagem--cabecalho { 
+    text-align: center;
+}
+
+.container--footer {
+    bottom: 0;
+    left: 0;
+    background-color:lightgrey ;
+    position: absolute;
+    border: 2px solid black;
+    width: 100vw;
+    height: 10vh;
+    padding-left: 4px;
+}
+
+.texto--body {
+    text-align: center;
+    padding-left: 4px;
+}
+.formulario--contato {
+    font-style:italic;
+    background-color: lightsteelblue;
+    text-align: center;
+    padding: 4px;
+    width: 50vw;
+}
+.botao--enviar {
+    width: 40px;
+
+}
+
+/* Alinhando as boxes do Formulário */
+.nome {
+    
+    
+    
+}
+
+.div--form {
+    box-sizing: border-box;
+    
+}
