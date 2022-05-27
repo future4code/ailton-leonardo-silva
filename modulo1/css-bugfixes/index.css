@@ -1,0 +1,183 @@
+/** 
+  *
+  *  ESTILOS GERAIS 
+  *
+  **/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+
+
+h2 {
+    background-color: #fe7e02;
+    padding: 10px 5px 10px 5px;
+    color: white;
+    text-align: center;
+}
+
+input {
+    height: 20px;
+    width: 500px;
+}
+
+button:focus {
+    color: white;
+}
+
+img {
+    width: 100px;
+}
+
+div>p:first-child {
+    display:inline;
+}
+
+div img {
+    background: black;
+}
+
+.botao-amarelo {
+    display: block;
+    background-color: #ffaf43;
+    width: 8vw;
+    height: 8vh;
+    border-radius: 5px;
+    font-size: 20px;
+    color: white;
+    position:absolute;
+    text-align: center;
+    top: 80px;
+    left: 46%;
+    
+    
+}
+
+.botao-amarelo:hover {
+    background-color: #c44f00;
+}
+
+.container {
+    height: 500px;
+    text-align: center;
+}
+
+.icone {
+    height: 16px;
+    width: 16px;
+    background-color: white;
+    
+    /* Mudando a cor e o tamanho ex7 */
+}
+.icone:hover {
+opacity: 0.5
+}
+.icone: {
+    background-color: black;
+    }
+
+/** 
+  *
+  *  ESTILOS HOME 
+  *
+  **/
+
+#container-de-descricao {
+    background-color: #2274a5;
+    color: white;
+}
+
+#container-de-descricao>ol {
+    padding: 16px;
+    text-align: center;
+    list-style-position: inside;
+}
+
+
+#container-para-comprar {
+    background-color: #e7eb90;
+    position: relative;
+}
+
+#container-para-comprar>p {
+    color: #c44f00;
+    padding: 100px 0;
+    font-size: 60px;
+}
+
+
+/**
+  *
+  *  ESTILOS COMPRAR 
+  *
+  **/
+
+div:nth-child(2),
+div:last-child {
+    text-align: center;
+}
+
+table {
+    position: absolute;
+    width: 100vw;
+    text-align: center; 
+    /* border: 2px solid black; usei para visualizar melhor a table*/
+    /* Inserido posicao absolut e alterado o width ex12 */
+}
+
+
+td button {
+    background-color: #fadf63;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+}
+
+.container-do-search {
+    margin-top: 20px;
+    height: 100px;
+}
+
+
+#back-button {
+    background-color: white;
+    width: 100px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 10px;
+    color: black;
+}
+
+#back-button:hover {
+    background-color: #635a3d
+}
+
+/* Adicionado para resolver o exercício 11 */
+.div--container--tabela {
+    position:relative;
+    widht 100vw;
+    height: 100vh;
+}
+
+/* Adicionando para resolver exercício 8 */
+
+#botao--comprar:hover {
+    background-color: orange;
+    color: grey;
+}
+
+#botao--comprar:active {
+    background-color:red;
+    color: white;
+}
+
+.caixa--pesquisa {
+    border: none;
+    border-bottom: 2px solid black ;
+}
+/* Resolvendo o exercício 9 */
