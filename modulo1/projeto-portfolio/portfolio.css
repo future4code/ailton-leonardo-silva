@@ -42,29 +42,54 @@ h1,h3.mensagem--cabecalho {
 }
 
 .texto--body {
-    text-align: center;
+    text-align: justify;
     padding-left: 4px;
+   
 }
+#lista--descricao>li {
+    padding: 4px;
+    text-align: justify;
+    list-style-position: inside;
+    
+}
+
 .formulario--contato {
     font-style:italic;
     background-color: lightsteelblue;
-    text-align: center;
+    text-align: justify;
     padding: 4px;
-    width: 50vw;
+    width: 32vw;
+    height: 32  vh;
 }
 .botao--enviar {
     width: 40px;
+    
+
 
 }
 
 /* Alinhando as boxes do Formulário */
-.nome {
-    
-    
-    
-}
+
 
 .div--form {
     box-sizing: border-box;
+    display:inline-block;
+    padding: 4px;
+    text-align: justify;
+    width: 200px;
+    height: 80px;
+}
+
+.nome, .texto, .email { 
+    box-sizing: content-box;
+}
+nav{ 
+    align-items: baseline;
+    position: sticky;
     
 }
+
+nav a:hover {
+    color: gray;
+    text-decoration: underline;
+}   
