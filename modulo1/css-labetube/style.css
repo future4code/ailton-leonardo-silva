@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+header {
+    background-color: orange;
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+}
+
+main {
+    background-color: lightgray;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(320px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    width: 100vw;
+    height: 100%;
+    gap: 16px;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+Para quebrar igual ao FlexWrap */
+section {
+    padding: 8px;
+    border: 1px solid black;
+    height: 100%;
+    display: grid;
+    gap: 16px;
+}
+
+.video {
+    /* border: 1px solid black; */
+    gap:16px;
+    padding: 16px;
+    width: 320px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+footer {
+    background-color: grey;
+    color: white;
+    grid-column: 1 / -1;
+}
