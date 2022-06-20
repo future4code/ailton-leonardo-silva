@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+
+}
+
+
+div.laranja h1, h2, h3, h4, h5, h6 {
+    color: orange;
+}
+
+h1.fundo--laranja {
+    background-color: orange;
+}
+
+h1:hover {
+    color: green;
+
+}
+button {
+    margin: 0 auto;
+    
+}
+
+button:hover {
+    background-color: red;
+    color: white;
+}
+button:active {
+    background-color: violet;
+    color: red
+}
+/* button:active {
+    background-color: violet;
+} */
+
+#div--do--botao {
+    text-align: center;
+}
+#container {
+    position:relative;
+    widht 100vw;
+    height: 100vh;
+}
+
+header {
+    border: 2px solid black;
+    height: 4vh;
+    background-color: gray;
+    width: 100vw;
+}
+footer {
+    border: 2px solid black;
+    height: 4vh;
+    width: 100vw;
+    background-color: wheat;
+    bottom: 0;
+    position: absolute;
+}
