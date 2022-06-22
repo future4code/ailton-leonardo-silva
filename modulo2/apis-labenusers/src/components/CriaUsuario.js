@@ -15,9 +15,9 @@ const Container = styled.div`
 `
 const Main = styled.div`
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   border:1px solid black;
-  border-radius:0.5em;
   background-color: lightgray;
   align-items: center;
   align-self: center;

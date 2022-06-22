@@ -7,27 +7,40 @@ import CriaUsuario from './components/CriaUsuario';
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-wrap:wrap;
   background-color: white;
+
   align-items: center;
   align-self: center;
-  justify-content: flex-start;
+  justify-content: center;
   width: 100%;
   height: 100%;
 `
 const Main = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   border:1px solid black;
-  border-radius:0.5em;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
   background-color: lightgray;
-  align-items: center;
+  align-items: left;
   align-self: center;
-  justify-content: flex-start;
-  width: 20em;
-  height: 40em;
+  justify-content: flex-end;
+  justify-self: start;
+  /* width: 1%; */
+  /* height: 40em; */
 `
-
+const Button = styled.button`
+  background-color: lightgray;
+  border: none;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  
+`
 
 
 export default class App extends Component {
@@ -60,13 +73,12 @@ export default class App extends Component {
     return (
       <Container>
         <Main>
-          
           {this.renderizaEtapa()}
           {this.state.page === 1 && (
-            <button onClick={this.nextPage}>Tela de Usuários</button>
+            <Button onClick={this.nextPage}>Tela de Usuários</Button>
           )}
           {this.state.page === 2 && (
-            <button onClick={this.previousPage}>Tela de Cadastro</button>
+            <Button onClick={this.previousPage}>Tela de Cadastro</Button>
           )}
         </Main>
         

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components';
 import axios from 'axios';
 
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,8 +16,8 @@ const Container = styled.div`
 const Main = styled.div`
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   border:1px solid black;
-  border-radius:0.5em;
   background-color: lightgray;
   align-items: center;
   align-self: center;
@@ -85,7 +86,7 @@ export default class Detalhes extends Component {
       });
   };
   
-
+  
   render() {
     return (
         <Container>
