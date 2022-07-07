@@ -30,11 +30,11 @@ export const HeaderMatches = styled.div`
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
     border-bottom: 1px thin gray;
-    
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
 `
 export const DivPhoto = styled.div`
     display: flex;
@@ -47,6 +47,7 @@ export const DivPhoto = styled.div`
     justify-content: center;
     width: 100%;
     height: 75%;
+    font-weight: bold;
 `
 
 export const FooterMatches = styled.div`
@@ -60,11 +61,15 @@ export const FooterMatches = styled.div`
     position: bottom;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+    font-weight: bold;
 `
 
 export const MatchPhoto = styled.img`
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 60%;
+    box-shadow: 2px 2px 5px darkgray;
+    border-radius: 0.4em;
+    font-weight: bold;
 `
