@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    grid-template-rows: 10vh 80vh 10vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: 'head head head'
+                         'main main main'
+                         'foot foot foot';
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    /* celulares */
+
+main {
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    gap: 8px;
+    padding: 8px;
+    width: 100vw;
+    height: 100vh;
+    
+    
+    
+}
+
+media {
+    
+    /* border: 2px solid black; */
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between ;
+    gap: 8px;
+    padding: 8px;
+    
+
+}
+.paginavideo--main {
+    background-color: green;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    min-width: 60vw;
+    min-height: 60vh;
+    gap: 16px;
+    padding: 16px;
+    align-items: center;
+    justify-content: center;
+}
+}
+
+@media screen and (min-device-width : 481px) and (max-device-width : 800px) {
+    /* tablets */
+}
+
+@media screen and (min-device-width : 1200px) {
+    /* computadores */
+}
+
+header {
+    grid-area: head;
+    background-color: orange;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+}
+
+main {
+    display: grid;
+    margin: auto;
+    width: 100vw;
+    height: 100vh;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 'media1 media2 media3 media4'
+                         'media5 media6 media7 media8'
+                         '. . . .';
+    gap:16px;
+    padding:16px;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.media {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    flex-wrap:wrap;
+    align-items: center;
+    justify-content: center ;
+    gap: 8px;
+    padding: 8px;
+    object-fit:cover;
+}
+
+/* Tratando o main da página de exibição de video */
+.paginavideo--main {
+    display: flex;
+    flex-direction: column;
+    height: 100vw;
+    width: 100vw;
+    align-items: center;
+    align-content: center;
+    justify-content: flex-start;
+  
+    padding: 16px;
+    
+}
+
+footer {
+    grid-area: foot;
+    background-color: grey;
+    color: white;
+    width: 100vw;
+    bottom: 0 auto;
+    
+}

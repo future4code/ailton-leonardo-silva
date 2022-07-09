@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+.container--tela {
+    background-color: white;
+    position: relative;
+    border: 2px solid black;
+    width: 100vw;
+    height: 100vw;
+    
+   
+}
+
+.container--header {
+    background-color: lightgrey;
+    border: 2px solid black;
+    position: relative;
+    width: 100vw;
+    height: 10vh;
+    padding-left: 4px;
+}
+
+h1,h3.mensagem--cabecalho { 
+    text-align: center;
+}
+
+.container--footer {
+    bottom: 0;
+    left: 0;
+    background-color:lightgrey ;
+    position: absolute;
+    border: 2px solid black;
+    width: 100vw;
+    height: 10vh;
+    padding-left: 4px;
+}
+
+.texto--body {
+    text-align: justify;
+    padding-left: 4px;
+   
+}
+#lista--descricao>li {
+    padding: 4px;
+    text-align: justify;
+    list-style-position: inside;
+    
+}
+
+.formulario--contato {
+    font-style:italic;
+    background-color: lightsteelblue;
+    text-align: justify;
+    padding: 4px;
+    width: 32vw;
+    height: 32  vh;
+}
+.botao--enviar {
+    width: 40px;
+    
+
+
+}
+
+/* Alinhando as boxes do Formulário */
+
+
+.div--form {
+    box-sizing: border-box;
+    display:inline-block;
+    padding: 4px;
+    text-align: justify;
+    width: 200px;
+    height: 80px;
+}
+
+.nome, .texto, .email { 
+    box-sizing: content-box;
+}
+nav{ 
+    align-items: baseline;
+    position: sticky;
+    
+}
+
+nav a:hover {
+    color: gray;
+    text-decoration: underline;
+}   
