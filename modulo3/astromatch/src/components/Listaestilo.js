@@ -19,7 +19,7 @@ export const DivLista = styled.div`
     align-items: center;
     align-self: center;
     justify-content: flex-start;
-    width: 32em;
+    width: 28em;
     height: 32em;
 `
 export const HeaderLista = styled.div`
@@ -31,9 +31,8 @@ export const HeaderLista = styled.div`
     border-bottom-right-radius: 0;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    font-weight: bold;
 `
 export const DivPhoto = styled.div`
     display: flex;
@@ -60,27 +59,41 @@ export const FooterLista = styled.div`
     justify-content: center;
     align-items: center;
 `
-export const CardLista = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 100%;
-    height: 4em;
-    align-self: center;
+export const ButtonPaginasLista = styled.button`
+    background-color: lightpink;
+    width: 8em;
+    border: 0.2em solid black;
+    border-radius: 0.4em;
+    font-weight: bold;
+    :hover {
+
+    }
 `
 
-export const ListaPhoto = styled.img`
+export const ListaMatchesContainer = styled.div`
     display: flex;
-    flex-direction: column;
-    width: 2em;
-    height: 2em;
+    flex-wrap: wrap;
+    width: 50%;
+    align-items: center;
+    align-self: flex-start;
+    justify-content: baseline;
+    padding: 0.2em;
+    :hover {
+        background-color: lightpink;
+    };
+    margin: 0.2em;
+  
+`;
+
+export const ListaPhoto = styled.img`
+    width: 3.2em;
+    height: 3.2em;
+    border-radius: 50%;
     box-shadow: 2px 2px 5px darkgray;
-    border-radius: 2em;
-    font-weight: bold;
 `
 export const H3 = styled.h3`
-    display: block;
+    display: flex;
     font-weight: bold;
+    font-size: 0.8em;
 
 `

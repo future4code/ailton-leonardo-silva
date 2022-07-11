@@ -1,14 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
 import { ButtonPaginas, ContainerInicial, Header } from './EstiloPaginas'
 import Lista from '../components/Lista'
 
 export default function TelaLista(props) {
+    // Buscando o localStorage
+    const user = localStorage.getItem("user");
     
     return (
         <ContainerInicial>
             <Header>
-                <h2>AstroMatch</h2>
+                <h2>AstroMatch - {user}</h2>
             </Header>
             <br/>
             <Lista />

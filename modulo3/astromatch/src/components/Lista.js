@@ -1,54 +1,62 @@
 import React from 'react'
-import { ContainerLista , DivLista, FooterLista , HeaderLista , DivPhoto , ListaPhoto , H3 , CardLista } from './Listaestilo'
-import styled from 'styled-components'
-import axios from 'axios'
-import { useState , useEffect } from 'react'
+import { ContainerLista , DivLista, HeaderLista , DivPhoto, ButtonPaginasLista, ListaPhoto, WrapperList , H3 } from './Listaestilo'
+import axios from 'axios';
+import { useState , useEffect } from 'react';
+import CardLista from './CardLista';
 
-export default function Matches() {
+export default function Lista() {
 
-  const [matches, setMatches] = useState([]);
-  
-  const AllMatches = () =>{
+    const [Matches , setMatches ] = useState ([])
 
+    // Buscando o localStorage
+    const user = localStorage.getItem("user");
+
+    // Chamando o useEffect para acessar o Astromatch via Axios
+    const AllMatches = () => {
+        axios
+        .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${user}/matches`)
+        .then((response) => {
+            setMatches(response.data.matches);
+            console.log(response.data.matches)
+            })
+        .catch((error) => {
+            console.log(error.response);
+            });
+    }
+    
+  // Limpando a API
+  const limparMatches = () => {
     axios
-    .get(
-      "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/leonardo-silva/matches"
-    )
+    .put(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/${user}/clear`)
     .then((response) => {
-      console.log(response.data.matches);
-      setMatches(response.data.matches);
+        console.log("Mensagem do response:" , response.data.message);
     })
-    .catch((erro) => {
-      console.log(erro);
+    .catch((error) => {
+        console.log(error.response);
     });
+}
 
-  }
-  useEffect(() => {
-    AllMatches()
-  }, []);
+const onClickLimpar = () => {
+    alert("Pronto a sua API foi limpa.")
+    limparMatches()
+}
 
-
-
-    // setlistaMatches(novalistaMatches);
-  
-    // Mapeamento para renderizar em listas
-    const mapmatches = matches?.map((pessoa) => {
-      return <CardLista key={pessoa.id}> 
-            <H3>
-              <ListaPhoto src={pessoa.photo} />{pessoa.name}
-            </H3>
-        </CardLista>
-    });
-
+useEffect(() => {
+  AllMatches();
+}, []);
 
   return (
     <ContainerLista>
-        
         <DivLista>
             <HeaderLista>
-              <h3>Seus Matches</h3>
+                <h3>Seus Matches</h3>
+                <ButtonPaginasLista onClick={onClickLimpar}>Limpar Matches</ButtonPaginasLista>
             </HeaderLista>
-            {mapmatches}
+            <DivPhoto>
+                {Matches?.map((matches) => {
+                    return <CardLista matches={matches} />;
+                })}
+            </DivPhoto>
         </DivLista>
     </ContainerLista>
   )

@@ -1,8 +1,6 @@
 import './App.css';
 import React from 'react';
-import axios from 'axios';
-import styled  from 'styled-components';
-import { useState , useEffect } from 'react'
+import { useState } from 'react'
 import TelaInicial from './pages/TelaInicial'
 import TelaMatches from './pages/TelaMatches'
 import TelaLista from './pages/TelaLista'
@@ -47,9 +45,3 @@ return (
 }
 
 export default App;
-
-
-
-
-
-

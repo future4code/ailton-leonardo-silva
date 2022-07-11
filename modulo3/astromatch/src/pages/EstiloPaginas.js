@@ -17,19 +17,34 @@ export const Header = styled.div`
     align-items: center;
     font-weight: bold;
 `
-export const DivInicial = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-self: center;
-    justify-content: center;
-`
-
 export const ButtonPaginas = styled.button`
     background-color: lightpink;
-    width: 8em;
-    border: none;
+    width: 12em;
+    border: 0.2em solid black;
     border-radius: 0.4em;
+    margin: 0.2em;
+    font-weight: bold;
+    :hover {
+        cursor: pointer;
+    }
+    
+`
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 12em;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+`
+export const InputNome = styled.input`
+    width: 12em;
+    margin: 0.2em;
+    border-radius: 0.4em;
+    font-weight: bold;
+`
+export const H3 = styled.h3`
+    display: flex;
     font-weight: bold;
 
 `

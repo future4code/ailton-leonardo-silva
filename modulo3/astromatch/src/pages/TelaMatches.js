@@ -1,14 +1,15 @@
 import React from 'react'
-import { useState } from 'react'
 import Matches from '../components/Matches'
 import { ButtonPaginas, ContainerInicial, Header } from './EstiloPaginas'
 
 export default function TelaMatches(props) {
+    // Buscando o localStorage
+    const user = localStorage.getItem("user");
 
     return (
         <ContainerInicial>
             <Header>
-                <h2>AstroMatch</h2>
+                <h2>AstroMatch - Oi, {user}!</h2>
             </Header>
             <br/>
             <Matches />
@@ -20,6 +21,3 @@ export default function TelaMatches(props) {
         </ContainerInicial>
     )
 }
-
-
-

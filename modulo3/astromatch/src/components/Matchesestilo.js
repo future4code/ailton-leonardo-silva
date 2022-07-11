@@ -7,7 +7,6 @@ export const ContainerMatches = styled.div`
     align-self: center;
     justify-content: center;
 `
-
 export const DivMatches = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +18,7 @@ export const DivMatches = styled.div`
     align-items: center;
     align-self: center;
     justify-content: flex-start;
-    width: 32em;
+    width: 28em;
     height: 32em;
 `
 export const HeaderMatches = styled.div`
@@ -49,7 +48,6 @@ export const DivPhoto = styled.div`
     height: 75%;
     font-weight: bold;
 `
-
 export const FooterMatches = styled.div`
     background-color: lightpink;
     width: 100%;
@@ -63,13 +61,15 @@ export const FooterMatches = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    font-weight: bold;
 `
 
 export const MatchPhoto = styled.img`
     width: 60%;
     height: 60%;
-    box-shadow: 2px 2px 5px darkgray;
     border-radius: 0.4em;
+    box-shadow: 2px 2px 5px darkgray;
+`
+export const H3 = styled.h3`
     font-weight: bold;
+
 `
