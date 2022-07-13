@@ -28,7 +28,7 @@
     }
 
     export const goToLogin = (navigate) => {
-        navigate("login")
+        navigate("/login")
     }
 
     export const goToAdminHomePageAdmin = (navigate) => {

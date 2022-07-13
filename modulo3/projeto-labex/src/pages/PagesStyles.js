@@ -100,6 +100,15 @@ export const Input = styled.input`
     width: 48em;
     font-family: "Roboto";
 `
+export const InputLogin = styled.input`
+    display: flex;
+    color: black;
+    font-weight: bold;
+    border-radius: 0.6em;
+    width: 24em;
+    font-family: "Roboto";
+`
+
 export const Select = styled.select`
     display: flex;
     color: black;

@@ -4,14 +4,19 @@ import { Container,
   Header,
   ButtonPages,
   ContainerButtons } from './PagesStyles'
-  import { useNavigate } from 'react-router-dom'
-  import { goToAdminHomePageAdmin } from '../routes/Coordinator'
+  import { useNavigate , useHistory } from 'react-router-dom'
+  import { goToLogin } from '../routes/Coordinator'
   import { goToCreateTripPage } from '../routes/Coordinator'
   import { BASE_URL } from '../constants/Constant'
   import { useRequestDataTripPage } from '../hooks/useRequestDataTripPage'
   import CardListTripPageAdmin from '../components/CardListTripPageAdmin'
+import useProtectedPage from '../hooks/useProtectedPage'
+  
+
 
 export default function AdminHomePage() {
+  //Checagem para saber se está logado ou não.
+  useProtectedPage()
 
   //Declarando o useNavigate
   const navigate = useNavigate()
@@ -27,7 +32,7 @@ export default function AdminHomePage() {
         <ContainerButtons>
             <ButtonPages onClick={() => goToCreateTripPage(navigate)}>CRIAR VIAGEM</ButtonPages>
             <br/>
-            <ButtonPages onClick={() => goToAdminHomePageAdmin(navigate)}>LOGOUT</ButtonPages>
+            <ButtonPages onClick={() => goToLogin(navigate)}>LOGOUT</ButtonPages>
         </ContainerButtons>
         <div>
           {isLoading && <p>Carregando...</p>}
