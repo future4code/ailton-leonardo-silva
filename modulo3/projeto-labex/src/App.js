@@ -1,12 +1,11 @@
 import './App.css';
-import ListTripsPage from './pages/ListTripsPage';
+import Router from "./routes/Router"
 
 function App() {
   return (
     <div className="App">
       <header>
-        Teste???
-        <ListTripsPage />
+        <Router />
       </header>
     </div>
   );
