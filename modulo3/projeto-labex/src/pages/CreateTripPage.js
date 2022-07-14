@@ -6,13 +6,18 @@ import { Container,
          Wrapper, 
          Input, 
          ContainerButtons, 
-         ButtonPages} from './PagesStyles'
+         ButtonPages,
+         Form} from './PagesStyles'
 import { useNavigate } from 'react-router-dom'
 import { goToAdminHPage } from '../routes/Coordinator'
 import { useState , useEffect } from 'react'
 import { BASE_URL } from '../constants/Constant'
+import useForm from '../hooks/useForm'
+import useProtectedPage from '../hooks/useProtectedPage'
 
 export default function CreateTripPage() {
+  //Checagem para saber se está logado ou não.
+  useProtectedPage()
 
   //Buscando o valor do localStorage
   const token = localStorage.getItem('token')
@@ -20,64 +25,37 @@ export default function CreateTripPage() {
   //Declarando o useNavigate
   const navigate = useNavigate()
 
-  //Declarando os useState
-  const [createTripName, setCreateTripName] = useState("")
-  const [createTripDesc, setCreateTripDesc] = useState("")
-  const [createTripPlanet, setCreateTripPlanet] = useState("")
-  const [createTripDuration, setCreateTripDuration] = useState("")
-  const [createTripDate, setCreateTripDate] = useState("")
-  const [body, setBody] =useState([])
+  //Chamando o custom Hook para Formularios
+  //Substitui as funções de Inputs Controlados
+  const { form , onChange , cleanFields} = useForm({name: "" , description: "" , planet: "" ,  durationInDays: "" , date: "" }) 
+
   const [data, setData] = useState(undefined);
   const [error, setError] = useState("");
 
 
-  // Funções para controlar os Inputs
-  const createName = (event) =>{
-    setCreateTripName(event.target.value)
-  }
+const CreateTrip = (event) => {
+    event.preventDefault()
 
-  const createDesc = (event) =>{
-    setCreateTripDesc(event.target.value)
-  }
-  const createPlanet = (event) =>{
-    setCreateTripPlanet(event.target.value)
-  }
-  const createDuration = (event) =>{
-    setCreateTripDuration(event.target.value)
-  }
-  
-  const createDate = (event) =>{
-    setCreateTripDate(event.target.value)
-  }
-
-const CreateTrip = () => {
-    // Chamando o Axios
+      // Chamando o Axios
     
-      const body = {   
-        name: createTripName,
-        description: createTripDesc,
-        planet: createTripPlanet,
-        durationInDays: +createTripDuration,
-        date: createTripDate,
-      }
       const headers = {
 
         headers: {auth:token}
       }
 
-      console.log(token, body)
+      console.log(token, form)
 
       axios
-        .post(`${BASE_URL}trips`, body, headers)
+        .post(`${BASE_URL}trips`, form , headers)
         .then(() => {
           alert("Viagem criada com sucesso!")
+          cleanFields()
         })
         .catch((error) => {
           setError(error);
           console.log(error.response)
         });
-   
-  } 
+} 
     
 
   return (
@@ -86,21 +64,47 @@ const CreateTrip = () => {
       <h2>LABEX - CreateTripPage</h2>
     </Header>
     <Main>
+      <Form onSubmit={CreateTrip}>
       <Wrapper>
         <h3>Crie uma nova viagem</h3>
-        <Input placeholder="Nome da viagem" onChange={createName}></Input>
-        <Input placeholder="Descrição" onChange={createDesc}></Input>
-        <Input placeholder="Planeta de Destino" onChange={createPlanet}></Input>
-        <Input type="number" placeholder="Duração em Dias" onChange={createDuration}></Input>
-        <Input type="date" placeholder="Data do Início da Viagem" onChange={createDate}></Input>
+        <Input name="name"
+               value={form.name}
+               placeholder="Nome da viagem"
+               onChange={onChange}
+               required></Input>
+        <Input name="description"
+               value={form.description}
+               placeholder="Descrição"
+               onChange={onChange}
+               required></Input>
+        <Input name="planet"
+               value={form.planet}
+               placeholder="Planeta de Destino"
+               onChange={onChange}
+               required></Input>
+        <Input type="number"
+               name="durationInDays"
+               value={form.durationInDays}
+               placeholder="Duração em Dias"
+               onChange={onChange}
+               required></Input>
+        <Input type="date"
+               name="date"
+               value={form.date}
+               placeholder="Data do Início da Viagem"
+               onChange={onChange}
+               required></Input>
       </Wrapper>
       
-      <ContainerButtons>
-        <ButtonPages onClick={() => goToAdminHPage(navigate)}>VOLTAR</ButtonPages>
-        <br/>
-        <ButtonPages onClick={CreateTrip}>CRIAR VIAGEM</ButtonPages>
-      </ContainerButtons>
+        <ContainerButtons>
+          <ButtonPages>CRIAR VIAGEM</ButtonPages>
+        </ContainerButtons>
+      </Form>
+        <ContainerButtons>
+          <ButtonPages onClick={() => goToAdminHPage(navigate)}>VOLTAR</ButtonPages>
+        </ContainerButtons>
     </Main>
+    
   </Container>
   )
 }

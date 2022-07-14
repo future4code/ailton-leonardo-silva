@@ -23,6 +23,8 @@ export default function HomePage() {
           <br/>
           <ButtonPages onClick={() => goToAdmin(navigate)}>ADMIN</ButtonPages>
         </ContainerButtons>
+        {/* <label>Curiosty</label> */}
+        {/* <iframe src='https://mars.nasa.gov/embed/8896/' width='60%' height='240' scrolling='no' frameborder='0'></iframe> */}
       </Main>
         
     </Container>

@@ -117,3 +117,13 @@ export const Select = styled.select`
     width: 48.42em;
     font-family: "Roboto";
 `
+export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    background-color: #b3b3b3;
+    color: white;
+    align-items: center;
+    align-self: center;
+    justify-content: space-evenly;
+    font-family: "Roboto";
+`

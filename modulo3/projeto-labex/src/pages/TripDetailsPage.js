@@ -5,7 +5,8 @@ import { Container,
   Wrapper, 
   Input, 
   ContainerButtons, 
-  ButtonPages} from './PagesStyles'
+  ButtonPages, 
+  H3 } from './PagesStyles'
 import { useNavigate } from 'react-router-dom'
 import { goToAdminHomePage } from '../routes/Coordinator'
 import { useState , useEffect } from 'react'
@@ -50,7 +51,12 @@ export default function TripDetailsPage() {
       </Header>
       <Main>
       <CardListTripPage trip={trip}/>
-
+      <br/>
+      <ContainerButtons>  
+        <H3>Candidatos em espera: A implementar</H3>
+        <br/>
+        <H3>Candidatos aprovados: A implementar</H3>
+      </ContainerButtons>
       <ContainerButtons>
         <ButtonPages onClick={() => goToAdminHomePage(navigate)}>VOLTAR</ButtonPages>
       </ContainerButtons>
