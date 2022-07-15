@@ -3,10 +3,10 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
-    width: 48em;
-    height: 24em;
+    width: 32em;
+    height: 20em;
     padding: 0.2em;
-    margin: 0.2em;
+    margin: 0.08em;
     background-color: #b3b3b3;
     color: white;
     border: 0.14em solid black;
@@ -19,8 +19,8 @@ export const Wrapper = styled.div`
 export const WrapperAdmin = styled.div`
     display: flex;
     flex-direction: column;
-    width: 48em;
-    height: 24em;
+    width: 32em;
+    height: 20em;
     padding: 0.2em;
     margin: 0.2em;
     background-color: #b3b3b3;
@@ -37,11 +37,24 @@ export const H2 = styled.h2`
     display: flex;
     color: white;
     font-weight: bold;
-    font-size: 1.6em;
+    font-size: 1.2em;
 `
 export const H3 = styled.h3`
     display: flex;
     color: white;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.8em;
 `
+
+export const H2C = styled.h2`
+    display: flex;
+    color: #b3b3b3;
+    font-weight: bold;
+    font-size: 1.2em;
+`
+export const H3C = styled.h3`
+    display: flex;
+    color: #b3b3b3;
+    font-weight: bold;
+    font-size: 0.8em;
+`  	 

@@ -4,6 +4,15 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    
+  background-color: #b3b3b3
 }
+
+/* Tentando trazer responsividade */
+@media screen and (min-width: 320) and (max-width: 480px) {
+  .div {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 

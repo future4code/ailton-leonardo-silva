@@ -6,7 +6,8 @@ import { Container,
   Input, 
   ContainerButtons, 
   ButtonPages, 
-  H3 } from './PagesStyles'
+  H3,
+  H2 } from './PagesStyles'
 import { useNavigate } from 'react-router-dom'
 import { goToAdminHomePage } from '../routes/Coordinator'
 import { useState , useEffect } from 'react'
@@ -14,13 +15,15 @@ import axios from 'axios'
 import { BASE_URL } from '../constants/Constant'
 import CardListTripPage from '../components/CardListTripPage'
 import { useParams } from 'react-router-dom'
+import CardCandidates from '../components/CardCandidates'
 
 export default function TripDetailsPage() {
 
   //Declarando o useNavigate
   const navigate = useNavigate()
   const [trip, setTrip] = useState([])
-
+  const [candidate, setCandidate] = useState([])
+  const [approved, setApproved] = useState([])
   //Declarando o useParams
   const pathParams = useParams(trip.id)
 
@@ -38,6 +41,8 @@ export default function TripDetailsPage() {
       .then((response) => {
         console.log(response.data.trip);
         setTrip(response.data.trip)
+        setCandidate(response.data.trip.candidates)
+        setApproved(response.data.trip.approved)
       })
       .catch((error) => {
         console.log("Deu erro: ", error.response);
@@ -50,17 +55,15 @@ export default function TripDetailsPage() {
         <h2>LABEX - TripDetailsPage</h2>
       </Header>
       <Main>
-      <CardListTripPage trip={trip}/>
-      <br/>
-      <ContainerButtons>  
-        <H3>Candidatos em espera: A implementar</H3>
+        <ContainerButtons>
+          <ButtonPages onClick={() => goToAdminHomePage(navigate)}>VOLTAR</ButtonPages>
+        </ContainerButtons>
         <br/>
-        <H3>Candidatos aprovados: A implementar</H3>
-      </ContainerButtons>
-      <ContainerButtons>
-        <ButtonPages onClick={() => goToAdminHomePage(navigate)}>VOLTAR</ButtonPages>
-      </ContainerButtons>
-
+        <CardListTripPage trip={trip}/>
+        <br/>
+        <ContainerButtons>
+          <CardCandidates trip={trip} candidate={candidate} approved={approved}/>
+        </ContainerButtons>
       </Main>
 
 

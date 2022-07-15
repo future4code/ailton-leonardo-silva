@@ -1,19 +1,19 @@
 import React from 'react'
-import { Container,
+import { ContainerHP,
   Main,
   Header,
   ButtonPages,
   ContainerButtons } from './PagesStyles'
 import { useNavigate } from 'react-router-dom'
 import { goToAdmin , goToListTripsPageHome } from '../routes/Coordinator'
-
+// import Carina from '../assets/carina_nebulae.png'
 export default function HomePage() {
 
   //Declarando o useNavigate
   const navigate = useNavigate()
 
   return (
-    <Container>
+    <ContainerHP>
       <Header>
         <h2>LABEX - HOMEPAGE</h2>
       </Header>
@@ -23,10 +23,9 @@ export default function HomePage() {
           <br/>
           <ButtonPages onClick={() => goToAdmin(navigate)}>ADMIN</ButtonPages>
         </ContainerButtons>
-        {/* <label>Curiosty</label> */}
-        {/* <iframe src='https://mars.nasa.gov/embed/8896/' width='60%' height='240' scrolling='no' frameborder='0'></iframe> */}
+        {/* <img src={Carina} /> */}
       </Main>
         
-    </Container>
+    </ContainerHP>
   )
 }

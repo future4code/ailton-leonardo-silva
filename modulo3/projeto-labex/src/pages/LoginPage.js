@@ -7,7 +7,10 @@ import { Container,
   ContainerForms, 
   InputLogin,
   H2, 
-  Form } from './PagesStyles'
+  Form,
+  Wrapper,
+  } from './PagesStyles'
+
 import { useNavigate } from 'react-router-dom'
 import { goToHomePage , goToAdminHomePage } from '../routes/Coordinator'
 import axios from 'axios'
@@ -52,29 +55,28 @@ export default function LoginPage() {
         <h2>LABEX - LOGINPAGE</h2>
       </Header>
       <Main>
+        <Wrapper>
         <Form onSubmit={onSubmitLogin}>
-          <ContainerForms>
-            <H2>EMAIL</H2>
-            <InputLogin
-                placeholder="email"
-                name="email"
-                type="email"
-                value={form.email} 
-                onChange={onChange}
-                pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"}
-                title="Utilize apenas caracteres minúsculos, números, não esqueça da @."
-                required/>
-            <H2>SENHA</H2>
-            <InputLogin
-                placeholder="Digite a sua senha"
-                name="password"
-                type="password"
-                value={form.password}
-                onChange={onChange}
-                pattern={"^.{5,}$"}
-                title="Sua senha deve ter no mínimo 5 caracteres."
-                required/>
-          </ContainerForms>
+              <H2>EMAIL</H2>
+              <InputLogin
+                  placeholder="email"
+                  name="email"
+                  type="email"
+                  value={form.email} 
+                  onChange={onChange}
+                  pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"}
+                  title="Utilize apenas caracteres minúsculos, números, não esqueça da @."
+                  required/>
+              <H2>SENHA</H2>
+              <InputLogin
+                  placeholder="Digite a sua senha"
+                  name="password"
+                  type="password"
+                  value={form.password}
+                  onChange={onChange}
+                  pattern={"^.{5,}$"}
+                  title="Sua senha deve ter no mínimo 5 caracteres."
+                  required/>
           <ContainerButtons>
             <ButtonPages>LOGIN</ButtonPages>
           </ContainerButtons>
@@ -82,6 +84,7 @@ export default function LoginPage() {
         <ContainerButtons>
           <ButtonPages onClick={() => goToHomePage(navigate)}>VOLTAR</ButtonPages> 
         </ContainerButtons>
+        </Wrapper>
       </Main>
 
     </Container>

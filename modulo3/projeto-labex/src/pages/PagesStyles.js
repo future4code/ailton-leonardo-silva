@@ -8,7 +8,18 @@ export const Container = styled.div`
     height: 100%;
     align-items: center;
     justify-content: center;
-    background-color: #b3b3b3;
+    /* background-color: #b3b3b3; */
+`
+export const ContainerHP = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #b3b3b3; */
+    
+    
 `
 export const ContainerForms = styled.div`
     display: flex;
@@ -18,6 +29,7 @@ export const ContainerForms = styled.div`
     align-items: center;
     align-self: center;
     justify-content: center;
+    background-color: #b3b3b3;
 `
 
 export const ContainerButtons = styled.div`
@@ -29,6 +41,7 @@ export const ContainerButtons = styled.div`
     align-items: center;
     align-self: center;
     justify-content: space-evenly;
+    /* background-color: #b3b3b3; */
 `
 
 export const Main = styled.div`
@@ -36,6 +49,7 @@ export const Main = styled.div`
     flex-direction: column;
     width: 100%;
     height: 100%;
+    /* background-color: #b3b3b3; */
 `
 export const Header = styled.div`
     display: flex;
@@ -59,27 +73,29 @@ export const ButtonPages = styled.button`
     border-radius: 0.4em;
     border: none;
     :hover {
-        background-color: white;
+        background-color: #b3b3b3;
         color: black;
     }
 `
 export const H2 = styled.h2`
     display: flex;
-    color: white;
+    flex-wrap: wrap;
+    color: #282828;
     font-weight: bold;
-    font-size: 1.6em;
+    font-size: 1.2em;
 `
 export const H3 = styled.h3`
     display: flex;
-    color: white;
+    flex-wrap: wrap;
+    color: #282828;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.8em;
 `
 export const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     width: 48em;
-    height: 20em;
+    height: 24em;
     padding: 0.2em;
     margin: 0.2em;
     background-color: #b3b3b3;
@@ -120,7 +136,7 @@ export const Select = styled.select`
 export const Form = styled.form`
     display: flex;
     flex-direction: column;
-    background-color: #b3b3b3;
+    /* background-color: #b3b3b3; */
     color: white;
     align-items: center;
     align-self: center;
