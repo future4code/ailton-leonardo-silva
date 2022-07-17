@@ -52,7 +52,7 @@ export default function TripDetailsPage() {
   return (
     <Container>
       <Header>
-        <h2>LABEX - TripDetailsPage</h2>
+        <h2>LABEX</h2>
       </Header>
       <Main>
         <ContainerButtons>

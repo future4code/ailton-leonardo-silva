@@ -77,6 +77,22 @@ export const ButtonPages = styled.button`
         color: black;
     }
 `
+export const ButtonPagesDiffBack = styled.button`
+    display: flex;
+    width: 10em;
+    font-weight: bold;
+    color: white;
+    background-color: #404040;
+    font-family: 'Roboto';
+    justify-content: center;
+    border-radius: 0.4em;
+    border: none;
+    :hover {
+        background-color: white;
+        color: black;
+    }
+`
+
 export const H2 = styled.h2`
     display: flex;
     flex-wrap: wrap;

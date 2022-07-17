@@ -2,7 +2,7 @@ import React from 'react'
 import { Container,
   Main,
   Header,
-  ButtonPages,
+  ButtonPagesDiffBack,
   ContainerButtons,
   ContainerForms, 
   InputLogin,
@@ -52,7 +52,7 @@ export default function LoginPage() {
   return (
     <Container>
       <Header>
-        <h2>LABEX - LOGINPAGE</h2>
+        <h2>LABEX</h2>
       </Header>
       <Main>
         <Wrapper>
@@ -78,11 +78,11 @@ export default function LoginPage() {
                   title="Sua senha deve ter no mínimo 5 caracteres."
                   required/>
           <ContainerButtons>
-            <ButtonPages>LOGIN</ButtonPages>
+            <ButtonPagesDiffBack>LOGIN</ButtonPagesDiffBack>
           </ContainerButtons>
         </Form>
         <ContainerButtons>
-          <ButtonPages onClick={() => goToHomePage(navigate)}>VOLTAR</ButtonPages> 
+          <ButtonPagesDiffBack onClick={() => goToHomePage(navigate)}>VOLTAR</ButtonPagesDiffBack> 
         </ContainerButtons>
         </Wrapper>
       </Main>

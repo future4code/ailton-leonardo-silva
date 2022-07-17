@@ -2,7 +2,7 @@ import React from 'react'
 import { Container,
   Main,
   Header,
-  ButtonPages,
+  ButtonPages, ButtonPagesDiffBack, 
   ContainerButtons, 
   Wrapper,
   Input,
@@ -96,7 +96,7 @@ export default function ApplicationFormPage() {
                    onChange={onChange}
                    required/>
             <ContainerButtons>
-              <ButtonPages>ENVIAR</ButtonPages>
+              <ButtonPagesDiffBack>ENVIAR</ButtonPagesDiffBack>
             </ContainerButtons>
           </Form>
         </Wrapper>

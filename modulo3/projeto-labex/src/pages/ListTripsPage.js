@@ -2,7 +2,7 @@ import React from 'react'
 import { Container,
          Main,
          Header,
-         ButtonPages,
+         ButtonPagesDiffBack,
          ContainerButtons } from './PagesStyles'
 import { useRequestDataTripPage } from '../hooks/useRequestDataTripPage'
 import { BASE_URL } from '../constants/Constant'
@@ -20,13 +20,13 @@ export default function ListTripsPage() {
   return (
     <Container>
       <Header>
-        <h2>LABEX - VIAGENS</h2>
+        <h2>LABEX</h2>
       </Header>
       <Main>
         <ContainerButtons>
-          <ButtonPages onClick={() => goToHomePage(navigate)}>VOLTAR</ButtonPages>
+          <ButtonPagesDiffBack onClick={() => goToHomePage(navigate)}>VOLTAR</ButtonPagesDiffBack>
           <br/>
-          <ButtonPages onClick={() => goToApplicationFormPage(navigate)}>INSCREVER-SE</ButtonPages>
+          <ButtonPagesDiffBack onClick={() => goToApplicationFormPage(navigate)}>INSCREVER-SE</ButtonPagesDiffBack>
         </ContainerButtons>
         <div>
           {isLoading && <p>Carregando...</p>}

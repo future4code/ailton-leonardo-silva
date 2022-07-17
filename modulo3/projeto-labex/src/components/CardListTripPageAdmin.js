@@ -1,6 +1,6 @@
 import React from "react";
 import { WrapperAdmin , H2 , H3 } from "./CardListTripPageStyles";
-import { ButtonPages, Container, ContainerButtons } from "../pages/PagesStyles";
+import { ButtonPagesDiffBack, Container, ContainerButtons } from "../pages/PagesStyles";
 import { useNavigate , useParams } from "react-router-dom";
 import { goToTripDetailsPage } from "../routes/Coordinator";
 import axios from "axios";
@@ -50,8 +50,8 @@ export default function CardListTripPageAdmin(props) {
                 <H3>Duração: {trip.durationInDays}</H3>
                 <H3>Data de início da viagem: {trip.date}</H3>
                 <ContainerButtons>
-                    <ButtonPages onClick={() => goToTripDetailsPage(navigate, trip.id)}>DETALHES</ButtonPages>
-                    <ButtonPages onClick={DeleteTrip}>EXCLUIR</ButtonPages>
+                    <ButtonPagesDiffBack onClick={() => goToTripDetailsPage(navigate, trip.id)}>DETALHES</ButtonPagesDiffBack>
+                    <ButtonPagesDiffBack onClick={DeleteTrip}>EXCLUIR</ButtonPagesDiffBack>
                 </ContainerButtons>
             </WrapperAdmin>
         </Container>

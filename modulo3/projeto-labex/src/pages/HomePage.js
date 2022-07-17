@@ -15,7 +15,7 @@ export default function HomePage() {
   return (
     <ContainerHP>
       <Header>
-        <h2>LABEX - HOMEPAGE</h2>
+        <h2>LABEX</h2>
       </Header>
       <Main>
       <ContainerButtons>
