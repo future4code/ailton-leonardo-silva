@@ -1,0 +1,39 @@
+/* Início do CSS voltado para Mobile First */
+/* .Container__CardFeed {
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+} */
+
+.Wrapper__CardFeed {
+    display: flex;
+    flex-direction: column;
+    background-color: fbfbfb;
+    margin: 0.2em;
+    padding: 0.2em;
+    
+    
+    align-content: center;
+    justify-content: left;
+}
+
+.Button__CardFeed {
+    display: flex;
+    width:16em;
+    height: 2em;
+    border-radius: 4em;
+    color: white;
+    cursor: pointer;
+    border-color: orange;
+    background-color: orange;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+.Button__Feed:hover {
+    opacity: 20%;
+}
+

@@ -1,11 +1,12 @@
 import React from 'react'
+import './LoginPageStyles.css'
 import { useNavigate } from 'react-router-dom'
 import { GlobalContext } from "../../components/global/GlobalContext"
 import { goToFeed, goToRegister } from '../../routes/Coordinator'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/Constants'
 import useForm from '../../hooks/useForm'
-
+import labenu from "../../assets/icone_labenu.png"
 
 export default function LoginPage() {
 
@@ -39,15 +40,15 @@ export default function LoginPage() {
   }
 
   return (
-    <div>
-      <header>
-        <h2>LABEDDIT LOGINPAGE</h2>
+    <div className="Container__Login">
+      <header className="Header__Login">
+        <img src={labenu} alt="imagem"/>
+        <h3>LabEddit</h3>
+        <h5>O projeto de rede social da Labenu</h5>
       </header>
       <main>
-        <div>
-        <form onSubmit={onSubmitLogin}>
-              <h2>EMAIL</h2>
-              <input
+        <form className="Wrapper" onSubmit={onSubmitLogin}>
+              <input className="Input"
                   placeholder="Email"
                   name="email"
                   type="email"
@@ -56,9 +57,8 @@ export default function LoginPage() {
                   pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"}
                   title="Utilize apenas caracteres minúsculos, números, não esqueça da @."
                   required/>
-              <h2>SENHA</h2>
-              <input
-                  placeholder="Digite a sua senha"
+              <input className="Input"
+                  placeholder="Senha"
                   name="password"
                   type="password"
                   value={form.password}
@@ -67,12 +67,12 @@ export default function LoginPage() {
                   title="Sua senha deve ter no mínimo 8 e no máximo 30 caracteres."
                   required/>
           <div>
-            <button>Continuar</button>
+            <br/>
+            <button className="Button">Continuar</button>
           </div>
         </form>
-        <div>
-          <button onClick={() => goToRegister(navigate)}>Crie uma conta!</button> 
-        </div>
+        <div className="Wrapper">
+          <button className="ButtonCadastro" onClick={() => goToRegister(navigate)}>Crie uma conta!</button> 
         </div>
       </main>
 

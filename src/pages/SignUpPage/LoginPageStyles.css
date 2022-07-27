@@ -1,0 +1,72 @@
+/* Início do CSS voltado para Mobile First */
+.Container__Login {
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Header__Login {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1em;
+    padding: 0;
+    width: 20em;
+    height: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.Wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 2em;
+    height:90%;
+    align-items: center;
+    justify-content: center;
+}
+.Input {
+    display: flex;
+    width:16em;
+    margin: 0.4em;
+    padding: 0.2em;
+    border-radius: 0.2em;
+    border: 0.08em solid lightgray;
+}
+
+.Input {
+    display: flex;
+    width:16em;
+    margin: 0.4em;
+    padding: 0.2em;
+    border-radius: 0.2em;
+    border: 0.08em solid lightgray;
+}
+
+.Button {
+    display: flex;
+    width:16em;
+    height: 2em;
+    border-radius: 4em;
+    color: white;
+    border-color: orange;
+    background-color: orange;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.ButtonCadastro {
+    display: flex;
+    width:16em;
+    height: 2em;
+    border-radius: 4em;
+    color: orange;
+    border-color: orange;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+}

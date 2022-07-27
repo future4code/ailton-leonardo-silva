@@ -1,10 +1,13 @@
 import React from 'react'
+import './RegisterPageStyles.css'
 import { useNavigate } from "react-router-dom"
 import { GlobalContext } from "../../components/global/GlobalContext"
-import { goToFeed } from '../../routes/Coordinator'
+import { goToFeed, goToLogin } from '../../routes/Coordinator'
 import useForm from '../../hooks/useForm'
 import axios from 'axios'
 import { BASE_URL } from '../../constants/Constants'
+import labenu_small from "../../assets/icone_labenu_small.png"
+
 
 export default function RegisterPage() {
   //Declarando o useNavigate
@@ -37,19 +40,19 @@ export default function RegisterPage() {
 }
 
   return (
-    <div>
-        <header>
+    <div className="Container__Register">
+        <header className="Header__Register">
             <div>
             </div>
             <div>
+              <img src={labenu_small} alt="imagem"/>
             </div>
-            <button onClick={() => goToFeed(navigate)}>Entrar</button>
+            <button className="Button__Header__Register" onClick={() => goToLogin(navigate)}>Entrar</button>
         </header>
         <main>
-          <label>Olá, boas vindas ao LabEddit ;)</label>
-          <form onSubmit={onSubmitRegister}>
-              <h2>NOME</h2>
-              <input
+          <h3>Olá, boas vindas ao LabEddit ;)</h3>
+          <form className="Wrapper__Register" onSubmit={onSubmitRegister}>
+              <input className="Input__Register"
                   placeholder="Nome"
                   name="username"
                   autoComplete="username"
@@ -59,8 +62,7 @@ export default function RegisterPage() {
                   // pattern={"[a-z][A-Z][0-9]"}
                   title="Utilize apenas caracteres ou números."
                   required/>
-              <h2>EMAIL</h2>
-              <input
+              <input className="Input__Register"
                   placeholder="email"
                   name="email"
                   type="email"
@@ -69,8 +71,7 @@ export default function RegisterPage() {
                   pattern={"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"}
                   title="Utilize apenas caracteres minúsculos, números, não esqueça da @."
                   required/>
-              <h2>SENHA</h2>
-              <input
+              <input className="Input__Register"
                   placeholder="Digite a sua senha"
                   name="password"
                   type="password"
@@ -80,7 +81,13 @@ export default function RegisterPage() {
                   title="Sua senha deve ter no mínimo 8 e no máximo 30 caracteres."
                   required/>
               <div>
-                <button>Continuar</button>
+                <h5>Ao continuar, você concorda com o nosso Contrato de usuário e nossa Política de Privacidade</h5>
+                <input type="checkbox" id="userAgreement" name="Agreement" required />
+                <label htmlFor="userAgreement">Eu concordo em receber emails sobre coisas legais no Labeddit</label>
+              </div>
+              <br/>
+              <div>
+                <button className="Button__Register">Continuar</button>
               </div>
           </form>
         </main>
