@@ -1,4 +1,5 @@
 import React from 'react'
+import './PostPageStyles.css'
 import { useEffect } from 'react'
 import { useNavigate , useParams } from "react-router-dom"
 import { GlobalContext } from "../../components/global/GlobalContext"
@@ -8,6 +9,8 @@ import { useRequestDataComments } from '../../hooks/useRequestDataComments'
 import useForm from '../../hooks/useForm'
 import axios from 'axios'
 import CardComment from '../../components/CardComment'
+import labenu_small from "../../assets/icone_labenu_small.png"
+
 
 export default function PostPage() {
   //Declarando o useNavigate
@@ -51,31 +54,37 @@ export default function PostPage() {
   }, []);
 
   return (
-    <div>
-        <header>
-          <button onClick={() => goToLogin(navigate)}>Logout / Voltar</button>
+    <div className="Container__Post">
+        <header className="Header__Post">
+          <div></div>
+          <div>
+            <img src={labenu_small} alt="imagem"/>
+          </div>
+          <button className="Button__Header__Post" onClick={() => goToLogin(navigate)}>Logout</button>
         </header>
         <main>
-          <form onSubmit={onSubmitComment}> 
-            <input
-              placeholder="Comentar"
+          <form className="Wrapper__Post" onSubmit={onSubmitComment}> 
+            <input className="Input__Body__Post"
+              placeholder="Adicionar comentário"
               name="body"
               value={form.body} 
               onChange={onChange}
               required/>
             <div>
-              <button>Comentar</button>
+              <button className="Button__Post">Responder</button>
             </div>
           </form>
-          <div>
-            {isLoading && <p>Carregando...</p>}
-            {!isLoading && error && <p>Ocorreu um erro!</p>}
-            {!isLoading && comments && comments.length > 0 && comments.map((comment, id) => {
-            return <CardComment key={comment.id} comment={comment} />;
-            })}
-            {!isLoading && comments && comments.length === 0 && (<p>Não há comentários nesse post.</p>)}
+          <div className="Wrapper__Post">
+            <div>
+              {isLoading && <p>Carregando...</p>}
+              {!isLoading && error && <p>Ocorreu um erro!</p>}
+              {!isLoading && comments && comments.length > 0 && comments.map((comment, id) => {
+              return <CardComment key={comment.id} comment={comment} />;
+              })}
+              {!isLoading && comments && comments.length === 0 && (<p>Não há comentários nesse post.</p>)}
+            </div>
+            <button className="Button__Post" onClick={() => goToFeedFromPost(navigate)}>Voltar para os Feeds</button>
           </div>
-          <button onClick={() => goToFeedFromPost(navigate)}>Voltar para os Feeds</button>
         </main>
     </div>
   )
