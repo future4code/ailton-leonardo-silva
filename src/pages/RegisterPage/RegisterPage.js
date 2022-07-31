@@ -50,8 +50,8 @@ export default function RegisterPage() {
             <button className="Button__Header__Register" onClick={() => goToLogin(navigate)}>Entrar</button>
         </header>
         <main>
-          <h3>Olá, boas vindas ao LabEddit ;)</h3>
           <form className="Wrapper__Register" onSubmit={onSubmitRegister}>
+              <h3>Olá, boas vindas ao LabEddit ;)</h3>
               <input className="Input__Register"
                   placeholder="Nome"
                   name="username"
@@ -63,7 +63,7 @@ export default function RegisterPage() {
                   title="Utilize apenas caracteres ou números."
                   required/>
               <input className="Input__Register"
-                  placeholder="email"
+                  placeholder="Email"
                   name="email"
                   type="email"
                   value={form.email} 

@@ -22,9 +22,7 @@ export default function FeedPage(props) {
 
     //Declarando o token
     const token = localStorage.getItem("token");
-    console.log(token)
-
-
+    
     //Chamando o custom Hook para Formularios
     //Substitui as funções de Inputs Controlados
     const { form , onChange , cleanFields } = useForm({title: "" , body: ""}) 
@@ -51,27 +49,27 @@ export default function FeedPage(props) {
             })
         }
 
-    const PostVote = (postId, direction) => {
-        const header = {
-            headers: {
-                Authorization: token
-            },
-        }    
-        const body = {
-            direction: direction,
-        };
-        const url = `${BASE_URL}/posts/${postId}/votes`
-        console.log(url)
-        axios
-        .put(url, body, header)
-        .then((response) => {
-            console.log(response.data)
-            alert("Sucesso! Seu voto foi computado!")
-        })
-        .catch((error) => {
-            console.log(error.response)
-        })
-    }          
+    // const PostVote = (postId, direction) => {
+    //     const header = {
+    //         headers: {
+    //             Authorization: token
+    //         },
+    //     }    
+    //     const body = {
+    //         direction: direction,
+    //     };
+    //     const url = `${BASE_URL}/posts/${postId}/votes`
+    //     console.log(url)
+    //     axios
+    //     .put(url, body, header)
+    //     .then((response) => {
+    //         console.log(response.data)
+    //         alert("Sucesso! Seu voto foi computado!")
+    //     })
+    //     .catch((error) => {
+    //         console.log(error.response)
+    //     })
+    // }          
             
 
     useEffect(() => {
@@ -96,8 +94,6 @@ export default function FeedPage(props) {
                     autoFocus
                     value={form.title} 
                     onChange={onChange}
-                    // pattern={"[a-z][A-Z][0-9]"}
-                    // title="Utilize apenas caracteres ou números."
                     required/>
                 <input className="Input__Body__Feed"
                     placeholder="Escreva seu post..."
@@ -114,8 +110,7 @@ export default function FeedPage(props) {
                 {isLoading && <p>Carregando...</p>}
                 {!isLoading && error && <p>Ocorreu um erro!</p>}
                 {!isLoading && posts && posts.length > 0 && posts.map((post, id) => {
-                    return <CardFeed key={post.id} post={post} PostVote={PostVote}
-                    />;
+                    return <CardFeed key={post.id} post={post}/>;
                     })}
                 {!isLoading && posts && posts.length === 0 && (<p>Não há itens na lista</p>)}
             </div>

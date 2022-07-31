@@ -2,13 +2,14 @@
 
 .Wrapper__CardComment {
     display: flex;
-    width: 16em;
+    width: 18em;
     flex-direction: column;
     background-color: #fbfbfb;
     border-radius: 0.4em;
     border: 0.08em solid #e1e1e1;
     margin: 0.2em;
     padding: 0.2em;
+    align-self: center;
     align-content: center;
     justify-content: left;
 }
@@ -22,13 +23,14 @@
 .Wrapper__Votes__CardComment {
     display: flex;
     flex-wrap: nowrap;
-    width: 4em;
+    height: 1.6em;
+    width: 6em;
     background-color: #fbfbfb;
     border-radius: 0.4em;
     border: 0.08em solid #e1e1e1;
     align-items: center;
     align-content: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     object-fit: cover;
 }
 
@@ -46,4 +48,135 @@
 
 .H5__CardComment {
     color: #cacaca;
+    font-size: 0.8em;
 }
+
+/* Início do CSS voltado para Mobile First */
+/* Formatação para 375px - Iphone 6/7/8*/
+
+@media screen and (min-width:321px) and (max-width: 380px) {
+    .Wrapper__CardComment {
+        display: flex;
+        width: 20em;
+        flex-direction: column;
+        background-color: #fbfbfb;
+        border-radius: 0.4em;
+        border: 0.08em solid #e1e1e1;
+        margin: 0.2em;
+        padding: 0.2em;
+        align-items: left;
+        align-self: center;
+        align-content: center;
+        justify-content: left;
+    }
+    
+    .Footer__CardComment {
+        display: flex;
+        width:100%;
+        height:1.6em;
+    }
+    
+    .Wrapper__Votes__CardComment {
+        display: flex;
+        flex-wrap: nowrap;
+        height: 1.6em;
+        width: 6em;
+        background-color: #fbfbfb;
+        border-radius: 0.4em;
+        border: 0.08em solid #e1e1e1;
+        align-items: center;
+        align-content: center;
+        justify-content: space-around;
+        object-fit: cover;
+    }
+
+}
+
+/* Início do CSS voltado para Mobile First */
+/* Formatação para 420px - Iphone 6/7/8Plus e Galaxy A51/71*/
+    
+@media screen and (min-width: 381px) and (max-width: 420px) {
+
+    .Wrapper__CardComment {
+        display: flex;
+        width: 22em;
+        flex-direction: column;
+        background-color: #fbfbfb;
+        border-radius: 0.4em;
+        border: 0.08em solid #e1e1e1;
+        margin: 0.2em;
+        padding: 0.2em;
+        align-items: left;
+        align-self: center;
+        align-content: center;
+        justify-content: left;
+    }
+        
+        .Footer__CardComment {
+            display: flex;
+            width:100%;
+            height:1.6em;
+        }
+        
+        .Wrapper__Votes__CardComment {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 1.6em;
+            width: 8em;
+            background-color: #fbfbfb;
+            border-radius: 0.4em;
+            border: 0.08em solid #e1e1e1;
+            align-items: center;
+            align-content: center;
+            justify-content: space-around;
+            object-fit: cover;
+        }
+    
+    
+
+}
+
+/* Início do CSS voltado para Mobile First */
+/* Formatação para 1200px - Desktop e Notebooks*/
+    
+@media screen and (min-width: 421px) and (max-width: 1600px) {
+
+    .Wrapper__CardComment {
+        display: flex;
+        width: 28em;
+        flex-direction: column;
+        background-color: #fbfbfb;
+        border-radius: 0.4em;
+        border: 0.08em solid #e1e1e1;
+        margin: 0.2em;
+        padding: 0.2em;
+        align-items: left;
+        align-self: center;
+        align-content: center;
+        justify-content: left;
+    }
+        
+        .Footer__CardComment {
+            display: flex;
+            width:100%;
+            height:1.6em;
+        }
+        
+        .Wrapper__Votes__CardComment {
+            display: flex;
+            flex-wrap: nowrap;
+            height: 1.6em;
+            width: 8em;
+            background-color: #fbfbfb;
+            border-radius: 0.4em;
+            border: 0.08em solid #e1e1e1;
+            align-items: center;
+            align-content: center;
+            justify-content: space-around;
+            object-fit: cover;
+        }
+    
+    
+
+}
+

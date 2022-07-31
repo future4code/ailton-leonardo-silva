@@ -10,6 +10,7 @@ import useForm from '../../hooks/useForm'
 import axios from 'axios'
 import CardComment from '../../components/CardComment'
 import labenu_small from "../../assets/icone_labenu_small.png"
+import x from "../../assets/x.png"
 
 
 export default function PostPage() {
@@ -56,13 +57,18 @@ export default function PostPage() {
   return (
     <div className="Container__Post">
         <header className="Header__Post">
-          <div></div>
+          <div>
+            <button className="Button__Header__Post" onClick={() => goToFeedFromPost(navigate)}><img src={x} alt="imagem"/></button>
+          </div>
           <div>
             <img src={labenu_small} alt="imagem"/>
           </div>
           <button className="Button__Header__Post" onClick={() => goToLogin(navigate)}>Logout</button>
         </header>
         <main>
+          <div className="Wrapper__Post">
+            <h4>Espaço para o post que estamos comentando</h4>
+          </div>
           <form className="Wrapper__Post" onSubmit={onSubmitComment}> 
             <input className="Input__Body__Post"
               placeholder="Adicionar comentário"
@@ -75,15 +81,12 @@ export default function PostPage() {
             </div>
           </form>
           <div className="Wrapper__Post">
-            <div>
-              {isLoading && <p>Carregando...</p>}
-              {!isLoading && error && <p>Ocorreu um erro!</p>}
-              {!isLoading && comments && comments.length > 0 && comments.map((comment, id) => {
-              return <CardComment key={comment.id} comment={comment} />;
-              })}
-              {!isLoading && comments && comments.length === 0 && (<p>Não há comentários nesse post.</p>)}
-            </div>
-            <button className="Button__Post" onClick={() => goToFeedFromPost(navigate)}>Voltar para os Feeds</button>
+            {isLoading && <p>Carregando...</p>}
+            {!isLoading && error && <p>Ocorreu um erro!</p>}
+            {!isLoading && comments && comments.length > 0 && comments.map((comment, id) => {
+            return <CardComment key={comment.id} comment={comment} />;
+            })}
+            {!isLoading && comments && comments.length === 0 && (<p>Não há comentários nesse post.</p>)}
           </div>
         </main>
     </div>
