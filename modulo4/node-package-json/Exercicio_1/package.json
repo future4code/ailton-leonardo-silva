@@ -1,0 +1,13 @@
+{
+  "name": "exercicio-1",
+  "version": "1.0.0",
+  "description": "Exercicio 1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "ailton-leonardo-silva",
+  "license": "ISC"
+}
