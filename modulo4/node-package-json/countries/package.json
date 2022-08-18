@@ -1,0 +1,19 @@
+{
+  "name": "search-country-by-name",
+  "version": "1.0.0",
+  "description": "Este script retorna um país de acordo com o nome passado como argumento",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "paises",
+    "busca",
+    "countries",
+    "labenu"
+  ],
+  "author": "Leonardo",
+  "license": "ISC"
+}
