@@ -1,0 +1,54 @@
+CREATE TABLE Turma_POO (
+	id VARCHAR (255) NOT NULL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    data_inicio DATE NOT NULL,
+    data_termino DATE NOT NULL,
+    modulo INT(1) DEFAULT(0)
+);
+
+CREATE TABLE Estudante_POO (
+	id VARCHAR (255) NOT NULL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    data_nascimento DATE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    turma_id VARCHAR(255),
+		FOREIGN KEY (turma_id) REFERENCES Turma_POO(id),
+    hobby_id VARCHAR(255),
+		FOREIGN KEY (hobby_id) REFERENCES Hobby_POO(id)
+);
+
+CREATE TABLE Hobby_POO (
+	id VARCHAR(255) NOT NULL UNIQUE PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL UNIQUE
+);
+
+CREATE TABLE Docente_POO (
+	id VARCHAR (255) NOT NULL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    data_nascimento DATE NOT NULL,
+    turma_id VARCHAR(255),
+		FOREIGN KEY (turma_id) REFERENCES Turma_POO(id),
+    especialidade_id VARCHAR(255),
+		FOREIGN KEY (especialidade_id) REFERENCES Especialidade_POO(id)    
+);
+
+CREATE TABLE Especialidade_POO (
+	id VARCHAR(255) NOT NULL UNIQUE PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL UNIQUE
+);
+
+SELECT * FROM Turma_POO;
+
+SELECT * FROM Estudante_POO;
+
+SELECT * FROM Docente_POO;
+
+DROP TABLE Turma_POO;
+
+DROP TABLE Estudante_POO;
+
+DROP TABLE Docente_POO;
+
+ALTER TABLE Turma_POO MODIFY COLUMN id VARCHAR (255) NOT NULL PRIMARY KEY;
