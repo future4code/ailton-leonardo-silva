@@ -17,7 +17,7 @@ app.get("/user/profile", userController.getUserData)
 // ------------- POST - ENDPOINTS --------------
 
 app.post("/user/signup", userController.createUser)
-app.post("/user/login", userController.getUserByEmail)
+app.post("/user/login", userController.login)
 
 // ------------- UPDATE - ENDPOINTS ------------
 

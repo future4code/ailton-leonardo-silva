@@ -1,30 +1,31 @@
-import jwt from "jsonwebtoken"
-import dotenv from "dotenv"
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+import { UserSystem } from "../model/User";
 
 dotenv.config();
 
-
 class Authenticator {
+  generateToken(usuario: UserSystem) {
+    const token = jwt.sign(
+      {
+        usuario,
+      },
+      process.env.JWT_KEY as string,
+      {
+        expiresIn: process.env.EXPIRES_IN,
+      }
+    );
 
-    generateToken(id: string) {
+    return token;
+  }
 
-        const token = jwt.sign(
-            {
-                id
-            },
-            process.env.JWT_KEY as string,
-            {
-                expiresIn: process.env.EXPIRES_IN
-            }
-        );
-        return token
-    }
+  verifyToken(token: string): UserSystem {
+    const verify = jwt.verify(token, process.env.JWT_KEY as string) as any;
 
-    verifyToken(token: string) {
+    const retornarTipagem: UserSystem = verify.usuario;
 
-        const verify = jwt.verify(token, process.env.JWT_KEY as string) as any
-        return verify.id 
-    }
+    return retornarTipagem;
+  }
 }
 
-export default Authenticator
+export default Authenticator;
