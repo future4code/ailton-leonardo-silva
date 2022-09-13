@@ -1,0 +1,32 @@
+{
+  "name": "async-await-promises",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && node ./build/index.js",
+    "ex1": "tsc && node ./build/ex1.js",
+    "ex2": "tsc && node ./build/ex2.js",
+    "ex3": "tsc && node ./build/ex3.js",
+    "ex4": "tsc && node ./build/ex4.js",
+    "ex5": "tsc && node ./build/ex5.js",
+    "ex6": "tsc && node ./build/ex6.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "typescript": "^4.8.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "knex": "^2.2.0",
+    "mysql": "^2.18.1"
+  }
+}
