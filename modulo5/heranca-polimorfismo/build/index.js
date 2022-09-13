@@ -1,0 +1,24 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const user_1 = require("./user");
+const customer_1 = require("./customer");
+const client_1 = require("./client");
+const residence_1 = require("./residence");
+const commerce_1 = require("./commerce");
+const industry_1 = require("./industry");
+const usuario = new user_1.User("001", "leonardo@gmail.com", "Leonardo", "Laura123");
+const consumidor = new customer_1.Customer("001", "raquel@gmail.com", "Raquel", "Laura123", "1212456846");
+consumidor.getCreditCard;
+const casa = new residence_1.Residence(3, "20735-130");
+const comercio = new commerce_1.Commerce(5, "20735-130");
+const industria = new industry_1.Industry(15, "20735-100");
+const usuarioResidencial = new client_1.ClienteResidencial("Leonardo", 278547, 100, 3, "20735-130");
+console.log(usuarioResidencial.getCep());
+console.log(usuarioResidencial.calculateBill());
+const usuarioComercial = new client_1.ClienteComercial("Leonardo", 568742, 2000, "12.345.678/0001-22", 5, "20735-120");
+console.log(usuarioComercial.getCnpj());
+console.log(usuarioComercial.calculateBill());
+const usuarioIndustrial = new client_1.ClienteIndustrial("Leonardo", 336985, 54500, 92877236, 10, "20735-100");
+console.log(usuarioIndustrial.getIndustryNumber());
+console.log(usuarioIndustrial.calculateBill());
+//# sourceMappingURL=index.js.map
