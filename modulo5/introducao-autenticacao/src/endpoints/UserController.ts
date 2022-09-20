@@ -1,16 +1,18 @@
 import { Request, Response } from "express";
 import UserData from "../data/UserData";
-import User from "../model/User";
+import User, { typeUser } from "../model/User";
 import Authenticator from "../services/Authenticator";
 import GenerateId from "../services/GenerateId";
+import { HashManager } from "../services/HashManager";
 
 class UserController {
   //***********   CRIAR UM USUÁRIO   *****************
   async createUser(req: Request, res: Response) {
     try {
       const id = new GenerateId().createId();
-      const email = req.body.email.toLowerCase();
-      const password = req.body.password;
+      const { name, email, password, role } = req.body;
+
+      email.toLowerCase();
 
       if (!email) {
         throw new Error("O email deve ser informado.");
@@ -31,15 +33,24 @@ class UserController {
         throw new Error("A sua senha deve ter mais de 6 caracteres.");
       }
 
+      if (
+        role.toUpperCase() !== typeUser.ADMIN && role.toUpperCase() !== typeUser.NORMAL) {
+        throw new Error("Tipo de usuário inválido");
+      }
+
+      // gerar o hash da senha
+      const hashPassword = await new HashManager().hashPassword(password);
+
       //Instancia um usuário
-      const user = new User(id, email, password);
+      const user = new User(id, name, email, hashPassword, role);
 
       //Instancia a classe de banco de dados
       const userData = new UserData();
 
       const answer = await userData.insertUser(user);
 
-      const token = new Authenticator().generateToken(id);
+      const userToken = { id, role };
+      const token = new Authenticator().generateToken(userToken);
 
       res.status(201).send({ message: answer, token });
     } catch (error: any) {
@@ -47,8 +58,8 @@ class UserController {
     }
   }
 
-  //***********   BUSCAR USUÁRIO POR EMAIL   *************
-  async getUserByEmail(req: Request, res: Response) {
+  //**************   FUNÇÃO DE LOGIN   ****************
+  async login(req: Request, res: Response) {
     try {
       const email: string = req.body.email.toLowerCase();
       const password: string = req.body.password;
@@ -77,13 +88,22 @@ class UserController {
 
       const answer = await userData.selectUserByEmail(email);
 
-      //Cheque de senhas
+      //Cheque para verificar se existe o email no Banco de Dados
+      if (!answer) {
+        throw new Error("Email inexistente");
+      }
 
-      if (password !== answer.password) {
+      //Cheque de senhas
+      const correctPassword = await new HashManager().compare(password, answer.password);
+
+      if (!correctPassword) {
         throw new Error("Senha inválida!");
       }
 
-      const token = new Authenticator().generateToken(answer.id);
+      const token = new Authenticator().generateToken({
+        id: answer.id,
+        role: answer.role,
+      });
 
       res.status(200).send({ token });
     } catch (error: any) {
@@ -96,20 +116,25 @@ class UserController {
   async getUserData(req: Request, res: Response) {
     try {
       const token = req.headers.authorization as string;
-      const authenticator = new Authenticator().verifyToken(token)
+      const authenticator = new Authenticator().verifyToken(token);
 
       if (!authenticator) {
-        throw new Error ("Usuário inválido.")
+        throw new Error("Usuário inválido.");
       }
 
       //Instancia a classe de banco de dados
       const userData = new UserData();
-      const fetchingData:any = await userData.fetchUserData(token)
+      const fetchingData: any = await userData.fetchUserData(token);
 
-      const user = await userData.fetchUserById(fetchingData.id)
+      const user = await userData.fetchUserById(fetchingData.id);
 
-      res.status(200).send({id: user.id, email: user.email})
-
+      res.status(200).send({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        password: user.password,
+        role: user.role,
+      });
     } catch (error: any) {
       res.status(500).send({ message: error.message });
     }
