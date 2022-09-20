@@ -1,32 +1,14 @@
-Boas-vindas!
-
-Esse repositório vai acompanhar vocês até o final do curso, para mantermos a organização, sugerimos que vocês sigam a seguinte estrutura:
-
-```
-.
-├── modulo1
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   └── nome-do-projeto
-|
-├── modulo2
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   └── nome-do-projeto
-|
-├── modulo3
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   ├── nome-da-aula
-│   └── nome-do-projeto
-|
-.
-```
-
-Uma pasta para cada módulo, dentro delas uma pasta para cada dia de aula colocando o nome da aula e por fim uma pasta para cada projeto de fixação com o nome do projeto. Os nomes de cada aula e projeto estarão especificados nas instruções de git de cada exercício.
+## **Meus pulls, trabalhos e projetos realizados durante o bootcamp da Labenu.**
+[Módulo1](https://github.com/future4code/ailton-leonardo-silva/tree/master/modulo1)
+##
+[Módulo2](https://github.com/future4code/ailton-leonardo-silva/tree/master/modulo2)
+##
+[Módulo3](https://github.com/future4code/ailton-leonardo-silva/tree/master/modulo3)
+##
+[Módulo4](https://github.com/future4code/ailton-leonardo-silva/tree/master/modulo4)
+##
+[Módulo5](https://github.com/future4code/ailton-leonardo-silva/tree/master/modulo5)
+#### [Projeto Labenu System POO](https://github.com/future4code/ailton-leonardo-silva/pull/55)
+#### [Projeto Cookenu](https://github.com/future4code/ailton-leonardo-silva/tree/master/modulo5/Projeto-cookenu)
+##
+[Módulo6](https://github.com/future4code/ailton-leonardo-silva/tree/master/modulo6)
