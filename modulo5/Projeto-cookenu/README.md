@@ -1,4 +1,7 @@
 ## COOKENU
+### **DOCUMENTAÇÃO**
+#### **[COOKENU](https://documenter.getpostman.com/view/21552015/2s7YfLic1v)**
+
 O projeto foi desenvolvido em Typescript, com o auxílio das bibliotecas, Express, Cors, Knex, UUID, BCryptJS e JWT.
 Você sabia que está ficando mais relevante no mundo de devs? Quanto mais e mais projetos você faz, mais tem clientes te divulgando por aí!
 De manhã, você acordou, tomou uma bela xícara de café, verificou sua caixa de email e viu que tinha mais uma proposta de Freela. Freela vem de Freelancer, que é um trabalhador autônomo que sempre trabalha em projetos diferentes. Dessa vez, um cliente deseja te pagar muito bem para implementar o Cookenu.
