@@ -30,8 +30,8 @@ export class ResultsBusiness {
             }
 
             //Checagens do parâmetro contest_id, checagem para seber se a prova está encerrada.
-            if (!contest_id) {
-                throw new ParamsError("Parâmetro 'contest_id' não informado.")
+            if (typeof contest_id !== "string") {
+                throw new RequestError("Parâmetro 'contest_id' inválido: deve ser uma string.")
             }
 
             if (!contest_id) {
@@ -47,13 +47,16 @@ export class ResultsBusiness {
             if (!value) {
                 throw new ParamsError("Parâmetro 'value' não informado.")
             }
-
+  
             //Checagem do TRYNUMBER
-            console.log("Trynumber", trynumber)
             if (!trynumber) {
                 trynumber = RESULTS_TRY.ZERO
-            }
-
+            } 
+            
+            if (!Object.values(RESULTS_TRY)?.includes(trynumber)) {
+                throw new ParamsError ("O número de tentativas deve ser '1' , '2' ou '3'.")
+           }
+           
             const inputResults = new Result(
                 athlete_id,
                 contest_id,
@@ -61,6 +64,16 @@ export class ResultsBusiness {
                 trynumber
             )
             
+            //Checagem final para saber se as 3 tentativas já foram cadastradas.
+            const checkTry = await this.resultsDatabase.fetchContest(athlete_id, contest_id)
+            const filterCheckTry = checkTry.filter((result: any) => {
+                return result.trynumber == trynumber
+            })
+            if (filterCheckTry.length !== 0) {
+                throw new ConflictError (`A tentativa ${trynumber} já foi cadastrada.`)
+            }
+
+            //Enviado ao Banco de Dados para cadastro
             await this.resultsDatabase.createResults(inputResults)
             
             const response: IResultOutputDTO = {

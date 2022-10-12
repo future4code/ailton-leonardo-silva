@@ -36,6 +36,15 @@ export class ResultsDatabase extends BaseDatabase {
     return result[0];
   }
 
+    //Método para verificar se as tentativas já foram executadas
+    async fetchContest(athlete_id:string , contest_id: string): Promise<any> {
+    
+      const result = await this.getConnection().raw(`
+        SELECT * FROM ${ResultsDatabase.TABLE_ATHLETES_CONTESTS} WHERE athlete_id = '${athlete_id}' AND contest_id = '${contest_id}'
+      `);
+      
+      return result[0];
+    }
 
   //Método para buscar os RESULTADOS de uma prova por ID
   async fetchResultsById(id: string, order: string): Promise<any> {
