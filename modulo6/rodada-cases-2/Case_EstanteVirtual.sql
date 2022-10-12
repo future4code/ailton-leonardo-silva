@@ -16,9 +16,27 @@ CREATE TABLE CASE_EstanteVirtual_Atletas_Competicoes (
 	athlete_id VARCHAR(255),
 		FOREIGN KEY (athlete_id) REFERENCES CASE_EstanteVirtual_Atletas(id),
 	contest_id VARCHAR(255),
-		FOREIGN KEY (contests_id) REFERENCES CASE_EstanteVirtual_Competicoes(id),
+		FOREIGN KEY (contest_id) REFERENCES CASE_EstanteVirtual_Competicoes(id),
 	value FLOAT,
-    try SMALLINT(1)
+    trynumber ENUM('0' , '1' , '2' , '3') DEFAULT ('0') NOT NULL
 );
 
-drop table CASE_EstanteVirtual_Competicoes
+SELECT * FROM CASE_EstanteVirtual_Atletas_Competicoes
+INNER JOIN CASE_EstanteVirtual_Atletas ON CASE_EstanteVirtual_Atletas.id = CASE_EstanteVirtual_Atletas_Competicoes.athlete_id
+INNER JOIN CASE_EstanteVirtual_Competicoes ON CASE_EstanteVirtual_Competicoes.id = CASE_EstanteVirtual_Atletas_Competicoes.contest_id
+WHERE CASE_EstanteVirtual_Atletas_Competicoes.contest_id = '5a328004-872b-4ea1-8d3a-cfa37d132874'
+ORDER BY value ASC;
+
+SELECT athlete_id, contest_id, MAX(value), name, country, contest, unit, status FROM CASE_EstanteVirtual_Atletas_Competicoes
+INNER JOIN CASE_EstanteVirtual_Atletas ON CASE_EstanteVirtual_Atletas.id = CASE_EstanteVirtual_Atletas_Competicoes.athlete_id
+INNER JOIN CASE_EstanteVirtual_Competicoes ON CASE_EstanteVirtual_Competicoes.id = CASE_EstanteVirtual_Atletas_Competicoes.contest_id
+WHERE CASE_EstanteVirtual_Atletas_Competicoes.contest_id = '5a328004-872b-4ea1-8d3a-cfa37d132874'
+GROUP BY CASE_EstanteVirtual_Atletas_Competicoes.athlete_id;
+#ORDER BY value ASC;
+
+
+
+
+
+
+drop table CASE_EstanteVirtual_Atletas_Competicoes;

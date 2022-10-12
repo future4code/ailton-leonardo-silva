@@ -107,7 +107,7 @@ export class ContestBusiness {
             await this.contestDatabase.updateContest(update)
             
             const response: IUpdateOutputDTO | any = {
-                message: "Cadastro realizado com sucesso.",
+                message: "Prova atualizada com sucesso.",
                 status : `Status da prova: ${status}`
             }
     

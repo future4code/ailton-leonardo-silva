@@ -19,7 +19,7 @@ export class ResultsController {
                     athlete_id: req.body.athlete_id,
                     contest_id: req.body.contest_id,
                     value: req.body.value,
-                    trynumber: req.body.try
+                    trynumber: req.body.trynumber
                 }
                 
                 const response = await this.resultsBusiness.createResults(input);

@@ -43,7 +43,7 @@ export class ContestController {
                 }
                 
                 const response = await this.contestBusiness.updateContest(input);
-                res.status(200).send({ Mensagem: response });
+                res.status(200).send(response);
             }
             catch (error: unknown) {
                 if (error instanceof BaseError) {
