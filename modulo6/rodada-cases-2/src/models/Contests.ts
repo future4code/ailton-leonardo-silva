@@ -1,7 +1,7 @@
 export enum CONTEST_STATUS {
-    ABERTA = "ABERTA",
-    INICIADA = "INICIADA",
-    ENCERRADA = "ENCERRADA"
+  ABERTA = "ABERTA",
+  INICIADA = "INICIADA",
+  ENCERRADA = "ENCERRADA"
 }
 
 export enum CONTEST_UNIT {
@@ -16,6 +16,13 @@ export interface IContestDB {
     status: CONTEST_STATUS
 }
 
+export interface IUpdateDB {
+    status: CONTEST_STATUS
+}
+
+export interface IUpdateDBDTO extends IUpdateDB {
+    id: string
+}
 
 export class Contest {
     constructor(
@@ -58,6 +65,21 @@ export class Contest {
     }
 }
 
+export class ContestUpdate {
+    constructor(
+        private id: string,
+        private status: CONTEST_STATUS
+    ) {}
+
+    public getId = () => {
+        return this.id
+    }
+
+    public getStatus = () => {
+        return this.status
+    }
+}
+
 export interface ISignupInputDTO {
     contest: string,
     unit: CONTEST_UNIT,
@@ -67,4 +89,9 @@ export interface ISignupInputDTO {
 export interface ISignupOutputDTO {
     message: string,
     contest: string
+}
+
+export interface IUpdateOutputDTO {
+    message: string,
+    status: CONTEST_STATUS
 }

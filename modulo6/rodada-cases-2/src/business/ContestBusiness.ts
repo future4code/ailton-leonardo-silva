@@ -2,7 +2,7 @@ import { ContestDatabase } from "../database/ContestDatabase";
 import { ConflictError } from "../errors/ConflictError";
 import { ParamsError } from "../errors/ParamsError";
 import { RequestError } from "../errors/RequestError";
-import { Contest, CONTEST_STATUS, CONTEST_UNIT, ISignupInputDTO, ISignupOutputDTO } from "../models/Contests";
+import { Contest, ContestUpdate, CONTEST_STATUS, CONTEST_UNIT, ISignupInputDTO, ISignupOutputDTO, IUpdateDBDTO, IUpdateOutputDTO } from "../models/Contests";
 
 import { IdGenerator } from "../services/IdGenerator";
 
@@ -17,8 +17,7 @@ export class ContestBusiness {
         public signupContest = async (input: ISignupInputDTO): Promise<ISignupOutputDTO> => {
             const { contest , unit } = input
             let status = input.status
-            console.log(unit)
-
+            
             //Checagens do parâmetro CONTEST
             if (typeof contest !== "string") {
                 throw new RequestError("Parâmetro 'contest' inválido: deve ser uma string.")
@@ -47,12 +46,12 @@ export class ContestBusiness {
             }
     
             
-            //Check se o atleta já está cadastrado no BD
-            // const isAthleteAlreadyExists = await this.athleteDatabase.findByName(name)
+            //Check se a prova já está cadastrado no BD
+            const isContestAlreadyExists = await this.contestDatabase.findByContest(contest)
             
-            // if (isAthleteAlreadyExists) {
-            //     throw new ConflictError("Atleta já cadastrado.")
-            // }
+            if (isContestAlreadyExists) {
+                throw new ConflictError("Prova já cadastrada.")
+            }
     
             const id = this.idGenerator.generate()
             
@@ -63,11 +62,53 @@ export class ContestBusiness {
                 status
             )
             
-            await this.contestDatabase.createAthlete(inputContest)
+            await this.contestDatabase.createContest(inputContest)
             
             const response: ISignupOutputDTO = {
                 message: "Cadastro realizado com sucesso.",
                 contest : `Prova ${contest}`
+            }
+    
+            return response
+        }
+
+        //*****   EDITAR UMA COMPETIÇÃO   *****
+        public updateContest = async (input: IUpdateDBDTO): Promise<IUpdateOutputDTO> => {
+            const id = input.id
+            let status = input.status as CONTEST_STATUS
+            
+            //Checagens do parâmetro ID
+            if (typeof id !== "string") {
+                throw new RequestError("Parâmetro 'id' inválido: deve ser uma string.")
+            }
+            
+            if (!id || id === ":id") {
+                throw new ParamsError("Parâmetro 'id' não informado.")
+            }
+
+            //Checagens do parâmetro STATUS
+            if (!status) {
+                throw new ParamsError("Parâmetro 'status' não informado.")
+            }
+
+            if (status !== CONTEST_STATUS.ABERTA && status !== CONTEST_STATUS.ENCERRADA && status !== CONTEST_STATUS.INICIADA) {
+                throw new ConflictError("Parâmetro 'status' inválido: deve ser o ENUM 'ABERTA', 'INICIADA' ou 'ENCERRADA'.")
+            }
+
+            //Check se a prova já está cadastrado no BD
+            const isContestAlreadyExists = await this.contestDatabase.findByContestId(id)
+            
+            if (!isContestAlreadyExists) {
+                throw new ConflictError("Prova não encontrada.")
+            }
+            
+            const update = new ContestUpdate (id, status)
+
+            await this.contestDatabase.updateContest(update)
+            
+            const response: IUpdateOutputDTO | any = {
+                message: "Cadastro realizado com sucesso.",
+                status : `Status da prova: ${status}`
             }
     
             return response

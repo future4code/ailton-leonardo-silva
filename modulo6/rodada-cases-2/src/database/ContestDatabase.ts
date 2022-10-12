@@ -1,5 +1,4 @@
-
-import { Contest, IContestDB } from "../models/Contests";
+import { Contest, ContestUpdate, CONTEST_STATUS, IContestDB, IUpdateDB } from "../models/Contests";
 import { BaseDatabase } from "./BaseDatabase";
 
 export class ContestDatabase extends BaseDatabase {
@@ -7,8 +6,8 @@ export class ContestDatabase extends BaseDatabase {
   public static TABLE_CONTESTS = "CASE_EstanteVirtual_Competicoes";
   public static TABLE_ATHLETES_CONTESTS = "CASE_EstanteVirtual_Atletas_Competicoes";
 
-  //Modelo de entrada de ATLETA no banco de dados
-  public toAthleteDBModel = (contest: Contest): IContestDB => {
+  //Modelo de entrada de COMPETIÇÃO no banco de dados
+  public toContestDBModel = (contest: Contest): IContestDB => {
     const contestDB: IContestDB = {
         id: contest.getId(),
         contest: contest.getContest(),
@@ -18,29 +17,37 @@ export class ContestDatabase extends BaseDatabase {
     return contestDB
 }
 
+  
   //Método para criar uma PROVA
-  public createAthlete = async (contest: Contest): Promise<void> => {
-    const contestDB = this.toAthleteDBModel(contest)
+  public createContest = async (contest: Contest): Promise<void> => {
+    const contestDB = this.toContestDBModel(contest)
     await this.getConnection()(ContestDatabase.TABLE_CONTESTS)
         .insert(contestDB)
 }
 
-//   //Método para buscar todoos os ATLETAS
-//   async fetchAllAthletes(): Promise<any> {
-//     const result = await this.getConnection().raw(`
-//         SELECT * FROM ${AthleteDatabase.TABLE_ATHLETES}
-//     `);
-//     return result[0];
-//   }
+  //Método para atualizar uma PROVA
+  public updateContest = async (updateStatus: ContestUpdate): Promise<void> => {
+    await this.getConnection()
+        .update({status: updateStatus.getStatus()})
+        .into(ContestDatabase.TABLE_CONTESTS)
+        .where({ id: updateStatus.getId() })
+}
   
-//   public findByName = async (name: string): Promise<IAthleteDB | undefined> => {
-//     const result: IAthleteDB[] = await this.getConnection()(AthleteDatabase.TABLE_ATHLETES)
-//         .select()
-//         .where({ name })
+  public findByContest = async (contest: string): Promise<IContestDB | undefined> => {
+    const result: IContestDB[] = await this.getConnection()(ContestDatabase.TABLE_CONTESTS)
+        .select()
+        .where({ contest })
 
-//     return result[0]
-// }
+    return result[0]
+}
 
+public findByContestId = async (id: string): Promise<IContestDB | undefined> => {
+  const result: IContestDB[] = await this.getConnection()(ContestDatabase.TABLE_CONTESTS)
+      .select()
+      .where({ id })
+
+  return result[0]
+}
 
   // //Método para verificar se um determinado ATLETA já está cadastrado
   // async fetchAthleteByName(search: string): Promise<any> {

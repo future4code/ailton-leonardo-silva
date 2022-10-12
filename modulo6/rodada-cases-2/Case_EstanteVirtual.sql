@@ -15,9 +15,10 @@ CREATE TABLE CASE_EstanteVirtual_Competicoes (
 CREATE TABLE CASE_EstanteVirtual_Atletas_Competicoes (
 	athlete_id VARCHAR(255),
 		FOREIGN KEY (athlete_id) REFERENCES CASE_EstanteVirtual_Atletas(id),
-	contests_id VARCHAR(255),
+	contest_id VARCHAR(255),
 		FOREIGN KEY (contests_id) REFERENCES CASE_EstanteVirtual_Competicoes(id),
-	value FLOAT
+	value FLOAT,
+    try SMALLINT(1)
 );
 
 drop table CASE_EstanteVirtual_Competicoes
