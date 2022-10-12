@@ -40,7 +40,7 @@ export class ResultsDatabase extends BaseDatabase {
   //Método para buscar os RESULTADOS de uma prova por ID
   async fetchResultsById(id: string, order: string): Promise<any> {
     const result = await this.getConnection().raw(`
-    SELECT athlete_id, contest_id, MAX(value) as value, name, country, contest, unit, status FROM ${ResultsDatabase.TABLE_ATHLETES_CONTESTS} 
+    SELECT athlete_id, contest_id, MAX(value) as value, name, country, contest, unit, status, ANY_VALUE(trynumber) as trynumber FROM ${ResultsDatabase.TABLE_ATHLETES_CONTESTS} 
     INNER JOIN ${ResultsDatabase.TABLE_ATHLETES} ON ${ResultsDatabase.TABLE_ATHLETES}.id = ${ResultsDatabase.TABLE_ATHLETES_CONTESTS}.athlete_id
     INNER JOIN ${ResultsDatabase.TABLE_CONTESTS} ON ${ResultsDatabase.TABLE_CONTESTS}.id = ${ResultsDatabase.TABLE_ATHLETES_CONTESTS}.contest_id
     WHERE ${ResultsDatabase.TABLE_ATHLETES_CONTESTS}.contest_id = '${id}'
