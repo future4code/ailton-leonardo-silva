@@ -4,11 +4,10 @@ import { useEffect, useState } from "react";
 import { GlobalContext } from "./GlobalContext";
 import { BASE_URL } from "../../constants/urls";
 import { useRequestData } from "../../hooks/useRequestData";
-import { getLoterias, getLoteriasConcursos } from "../../services/get";
+
 
 const GlobalState = (props) => {
   const [loterias, setLoterias] = useState();
-  const [loteriasConcursos, setLoteriasConcursos] = useState([]);
   const [concursos, setConcursos] = useState([]);
   const [value, setValue] = useState("");
   const [loading, setLoading] = useState();
@@ -49,8 +48,8 @@ const GlobalState = (props) => {
   // console.log("loterias", loterias);
   // console.log("Concursos", loteriasConcursos);
 
-  const states = { loterias, loteriasConcursos, value };
-  const setters = { setLoterias, setLoteriasConcursos, setValue };
+  const states = { loterias, value };
+  const setters = { setLoterias, setValue };
   const requests = {};
 
   const Provider = GlobalContext.Provider;

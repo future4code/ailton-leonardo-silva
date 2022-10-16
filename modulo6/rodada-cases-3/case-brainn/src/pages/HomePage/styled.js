@@ -12,6 +12,13 @@ export const Container = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     background-color: ${backgroundColor2};
+
+    @media screen and (min-width: 50px) and (max-width: 699px) {
+        grid-template-columns: 1fr;
+      }
+    @media screen and (min-width: 700px) and (max-width: 1100px) {
+        grid-template-columns: 1fr 1fr;
+    }
 `
 
 export const Sidebar = styled.div`
