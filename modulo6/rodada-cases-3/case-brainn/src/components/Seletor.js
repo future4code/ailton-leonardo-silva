@@ -2,6 +2,7 @@ import React , { useContext } from "react"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../components/global/GlobalContext"
+import MegaSenaPage from "../pages/MegaSenaPage/MegaSenaPage";
 import { gotoHomePage } from "../routes/Coordinator";
 import { gotoMegaSena } from "../routes/Coordinator";
 import { gotoQuina } from "../routes/Coordinator";
@@ -12,26 +13,30 @@ import { gotoDiaDeSorte } from "../routes/Coordinator";
 
 export const Seletor = () => {
     const navigate = useNavigate()  
-    const [value, setValue] = useState()
+    const {states, setters, requests} = useContext(GlobalContext)
+    const {value} = states
+    const {setValue} = setters
+
+    
 
     return (
         <div>
             <select name="loterias" value={value} onChange={(event) => setValue(event.target.value)}>
                     <option value={""}>Escolha um Jogo</option>
-                    <option onChange={() => gotoMegaSena(navigate)} value="Mega-Sena">Mega-Sena</option>
-                    <option onChange={() => gotoQuina(navigate)} value="Quina">Quina</option>
-                    <option onChange={() => gotoLotofacil(navigate)} value="Lotofácil">Lotofácil</option>
-                    <option onChange={() => gotoLotomania(navigate)} value="Lotomania">Lotomania</option>
-                    <option onChange={() => gotoTimemania(navigate)} value="Timemania">Timemania</option>
-                    <option onChange={() => gotoDiaDeSorte(navigate)} value="Dia de Sorte">Dia de Sorte</option>
+                    <option value="mega-sena">Mega-Sena</option>
+                    <option value="quina">Quina</option>
+                    <option value="lotofácil">Lotofácil</option>
+                    <option value="lotomania">Lotomania</option>
+                    <option value="timemania">Timemania</option>
+                    <option value="dia de sorte">Dia de Sorte</option>
+               
                 </select>
-                    {value === "" && gotoHomePage(navigate)}
-                    {value === "Mega-Sena" && gotoMegaSena(navigate)}
-                    {value === "Quina" && gotoQuina(navigate)}
-                    {value === "Lotofácil" && gotoLotofacil(navigate)}
-                    {value === "Lotomania" && gotoLotomania(navigate)}
-                    {value === "Timemania" && gotoTimemania(navigate)}
-                    {value === "Dia de Sorte" && gotoDiaDeSorte(navigate)}
+                    {value === "mega-sena" && <MegaSenaPage/>}
+                    {/* {value === "quina" && gotoQuina(navigate)}
+                    {value === "lotofácil" && gotoLotofacil(navigate)}
+                    {value === "lotomania" && gotoLotomania(navigate)}
+                    {value === "timemania" && gotoTimemania(navigate)}
+                    {value === "dia de sorte" && gotoDiaDeSorte(navigate)} */}
         </div>
 
     )

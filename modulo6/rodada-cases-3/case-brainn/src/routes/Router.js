@@ -15,13 +15,13 @@ export const Router = () => {
         <BrowserRouter>
             <Routes>
                 <Route index element={<HomePage />} />
-                <Route path="DiaDeSorte" element={<DiaDeSortePage />}/>
+                {/* <Route path="DiaDeSorte" element={<DiaDeSortePage />}/>
                 <Route path="Lotofacil" element={<LotofacilPage />}/>
                 <Route path="Lotomania" element={<LotomaniaPage />}/>
                 <Route path="MegaSena" element={<MegaSenaPage />}/>
                 <Route path="Quina" element={<QuinaPage />}/>
                 <Route path="Timemania" element={<TimemaniaPage />}/>
-                <Route path="Error" element={<ErrorPage />}/>
+                <Route path="Error" element={<ErrorPage />}/> */}
             </Routes>
         </BrowserRouter>
     )
