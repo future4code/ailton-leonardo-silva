@@ -1,0 +1,46 @@
+### Endpoint de teste
+GET http://localhost:3003/ping
+
+### 1) Signup
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "alice",
+    "email": "alice@gmail.com",
+    "password": "alice99"
+}
+
+### 2) Login
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+{
+    "email": "astrodev@gmail.com",
+    "password": "bananinha"
+}
+
+### 3) Create post
+POST http://localhost:3003/posts
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDM5Mzk2MSwiZXhwIjoxNjYwNDgwMzYxfQ.FwOtXHKx1XXFnMot-CJstZPCzEORAtPrwd3iz8QAg5A
+Content-Type: application/json
+
+{
+    "content": "Hello world!"
+}
+
+### 4) Get posts
+GET http://localhost:3003/posts
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDM5Mzk2MSwiZXhwIjoxNjYwNDgwMzYxfQ.FwOtXHKx1XXFnMot-CJstZPCzEORAtPrwd3iz8QAg5A
+
+### 5) Delete post
+DELETE http://localhost:3003/posts/92bc1f42-ce2c-4329-8420-72a368034320
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDM5Mzk2MSwiZXhwIjoxNjYwNDgwMzYxfQ.FwOtXHKx1XXFnMot-CJstZPCzEORAtPrwd3iz8QAg5A
+
+### 6) Like post
+POST http://localhost:3003/posts/like/92bc1f42-ce2c-4329-8420-72a368034320
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDM5Mzk2MSwiZXhwIjoxNjYwNDgwMzYxfQ.FwOtXHKx1XXFnMot-CJstZPCzEORAtPrwd3iz8QAg5A
+
+### 7) Remove Like from post
+DELETE http://localhost:3003/posts/like/92bc1f42-ce2c-4329-8420-72a368034320
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEwMSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTY2MDM5Mzk2MSwiZXhwIjoxNjYwNDgwMzYxfQ.FwOtXHKx1XXFnMot-CJstZPCzEORAtPrwd3iz8QAg5A
