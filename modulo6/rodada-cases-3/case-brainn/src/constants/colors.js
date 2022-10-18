@@ -29,7 +29,7 @@ export const Color = (type) => {
       case "timemania":
           return "#5AAD7D"
       case "dia de sorte":
-          return "BFAF83"
+          return "#BFAF83"
       
       default:
           return "#6BEFA3";

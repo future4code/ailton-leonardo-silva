@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { GlobalContext } from "../../components/global/GlobalContext"
 import { useState } from "react"
-import { ButtonNumber, Container, Footer_Sidebar, Header_Sidebar, Main, Main_Sidebar, Name_div, Numbers_div, Select, Sidebar } from "./styled"
+import { ButtonNumber, Container, Footer_Main, Footer_Sidebar, H3, H4, H5, H6, Header_Main, Header_Sidebar, Main, Main_Sidebar, Name_div, Numbers_div, Select, Sidebar } from "./styled"
 import { BASE_URL } from "../../constants/urls"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Color } from "../../constants/colors"
@@ -62,15 +62,15 @@ const HomePage = () => {
   const [resultadoConcurso] = useRequestData([],`${BASE_URL}/concursos/${valor}`);
     
   // console.log("Valor" , valor )
-  console.log("data", data)
+  // console.log("data", data)
   
-  console.log("Concursos", concursos)
+  // console.log("Concursos", concursos)
   
-  console.log("Resultado Concurso",resultadoConcurso)
+  // console.log("Resultado Concurso",resultadoConcurso)
 
   var dataDoConcurso = `${new Date(resultadoConcurso.data)}`;
   var date = Moment(dataDoConcurso).format('DD/MM/YYYY');
-  console.log("Date" , date)
+  // console.log("Date" , date)
   // formato('YYYY-MM-DDTHH:mm:ss')
   
 
@@ -80,7 +80,7 @@ const HomePage = () => {
         <Container>
             <Sidebar>
                 <Header_Sidebar style={{backgroundColor: Color(nomeLoteria?.[0]?.nome)}}>
-                <Select name="loterias" value={loterias} onChange={handleChange}>
+                  <Select name="loterias" value={loterias} onChange={handleChange}>
                     <option value="mega-sena">Mega-Sena</option>
                     <option value="quina">Quina</option>
                     <option value="lotofácil">Lotofácil</option>
@@ -88,38 +88,36 @@ const HomePage = () => {
                     <option value="timemania">Timemania</option>
                     <option value="dia de sorte">Dia de Sorte</option>
                
-                </Select>
-                    <div></div>
+                  </Select>
                 </Header_Sidebar>
                 <Main_Sidebar style={{backgroundColor: Color(nomeLoteria?.[0]?.nome)}}>
                     <img src={trevodacaixa} alt="trevo" />
-                    <h3>{nomeLoteria?.[0]?.nome === undefined ? (<h3>MEGA-SENA</h3>) : (nomeLoteria?.[0]?.nome.toUpperCase())}</h3>
+                    <H3>{nomeLoteria?.[0]?.nome === undefined ? (<H3>MEGA-SENA</H3>) : (nomeLoteria?.[0]?.nome.toUpperCase())}</H3>
                 </Main_Sidebar>
                 <Footer_Sidebar style={{backgroundColor: Color(nomeLoteria?.[0]?.nome)}}>
-                    <h3>Concurso - {resultadoConcurso.id} - {date}</h3>
+                    <H6>Concurso - {resultadoConcurso.id} - {date}</H6>
                     <div></div>
                 </Footer_Sidebar>
             </Sidebar>
             <Main>
-                <h3>{nomeLoteria?.[0]?.nome === undefined ? (<h4>MEGA-SENA</h4>) : (nomeLoteria?.[0]?.nome.toUpperCase())}</h3>
-                <div>
-                <div></div>
+                <Header_Main>
+
+                </Header_Main>
                 <Numbers_div>
-                  {resultadoConcurso.numeros && resultadoConcurso.numeros?.map((numbers) => {
-                    return (
-                      <ButtonNumber key={Math.random()}>
-                        {numbers}
-                      </ButtonNumber>
-                    );
-                  })}
+                    {resultadoConcurso.numeros && resultadoConcurso.numeros?.map((numbers) => {
+                      return (
+                        <ButtonNumber key={Math.random()}>
+                          {numbers}
+                        </ButtonNumber>
+                      );
+                   })}
                 </Numbers_div>
-      </div>
-                <h4>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</h4>
-            </Main>
-            <div>
                 
-          
-            </div>
+                <Footer_Main>
+                  <H5>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</H5>
+                </Footer_Main>
+            </Main>
+            
 
         </Container>
 
