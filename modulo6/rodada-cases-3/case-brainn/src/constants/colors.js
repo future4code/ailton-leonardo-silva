@@ -12,6 +12,8 @@ export const backgroundColor2 = "#DDDDDD"
 
 
 export const whiteColor = "#FFFFFF"
+export const blackColor = "#000000"
+export const greyColor = "#454545"
 
 export const Color = (type) => {
 

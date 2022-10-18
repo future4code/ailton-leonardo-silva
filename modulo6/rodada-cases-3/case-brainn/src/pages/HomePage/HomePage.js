@@ -1,14 +1,12 @@
 import React, { useContext } from "react"
-import { useNavigate } from "react-router-dom"
 import { GlobalContext } from "../../components/global/GlobalContext"
-import { Seletor } from "../../components/Seletor"
 import { useState } from "react"
-import { buttonNumber, Container, Footer_Sidebar, Header_Sidebar, Main, Main_Sidebar, Sidebar } from "./styled"
+import { ButtonNumber, Container, Footer_Sidebar, Header_Sidebar, Main, Main_Sidebar, Name_div, Numbers_div, Select, Sidebar } from "./styled"
 import { BASE_URL } from "../../constants/urls"
 import { useRequestData } from "../../hooks/useRequestData"
 import { Color } from "../../constants/colors"
-import { FormatDate } from "../../FormatDate"
-
+import trevodacaixa from "../../assets/trevodacaixa.svg"
+import Moment from 'moment';
 
 const HomePage = () => {
 
@@ -58,27 +56,31 @@ const HomePage = () => {
     return loterias === loteria.loteriaId
   });
 
-  console.log("Loteria Concursos *** " , loteriaconcurso)
+  // console.log("Loteria Concursos *** " , loteriaconcurso)
 
   //Buscando os resultados dos sorteios
-  // const [resultadoConcurso] = useRequestData([],`${BASE_URL}/concursos/${loteriaconcurso?.[0]?.concursoId === undefined? 2359 : loteriaconcurso?.[0]?.concursoId}`);
   const [resultadoConcurso] = useRequestData([],`${BASE_URL}/concursos/${valor}`);
     
-  console.log("Valor" , valor )
-  console.log("Loterias", loterias)
+  // console.log("Valor" , valor )
+  console.log("data", data)
   
   console.log("Concursos", concursos)
   
   console.log("Resultado Concurso",resultadoConcurso)
+
+  var dataDoConcurso = `${new Date(resultadoConcurso.data)}`;
+  var date = Moment(dataDoConcurso).format('DD/MM/YYYY');
+  console.log("Date" , date)
+  // formato('YYYY-MM-DDTHH:mm:ss')
   
 
-console.log("Disso", loteriaconcurso[valor])
+// console.log("Disso", loteriaconcurso[valor])
 
     return (
         <Container>
             <Sidebar>
                 <Header_Sidebar style={{backgroundColor: Color(nomeLoteria?.[0]?.nome)}}>
-                <select name="loterias" value={loterias} onChange={handleChange}>
+                <Select name="loterias" value={loterias} onChange={handleChange}>
                     <option value="mega-sena">Mega-Sena</option>
                     <option value="quina">Quina</option>
                     <option value="lotofácil">Lotofácil</option>
@@ -86,44 +88,31 @@ console.log("Disso", loteriaconcurso[valor])
                     <option value="timemania">Timemania</option>
                     <option value="dia de sorte">Dia de Sorte</option>
                
-                </select>
+                </Select>
                     <div></div>
                 </Header_Sidebar>
                 <Main_Sidebar style={{backgroundColor: Color(nomeLoteria?.[0]?.nome)}}>
-                {nomeLoteria?.[0]?.nome === undefined ? (
-                    <p>MEGA-SENA</p>
-                ) : (
-                    nomeLoteria?.[0]?.nome.toUpperCase()
-                )}
-                <div></div> 
+                    <img src={trevodacaixa} alt="trevo" />
+                    <h3>{nomeLoteria?.[0]?.nome === undefined ? (<h3>MEGA-SENA</h3>) : (nomeLoteria?.[0]?.nome.toUpperCase())}</h3>
                 </Main_Sidebar>
                 <Footer_Sidebar style={{backgroundColor: Color(nomeLoteria?.[0]?.nome)}}>
-                    <h3>Concurso - {resultadoConcurso.id} - {resultadoConcurso.data}</h3>
+                    <h3>Concurso - {resultadoConcurso.id} - {date}</h3>
                     <div></div>
                 </Footer_Sidebar>
             </Sidebar>
             <Main>
-                
-                
-                {nomeLoteria?.[0]?.nome === undefined ? (
-                    <p>MEGA-SENA</p>
-                ) : (
-                    nomeLoteria?.[0]?.nome.toUpperCase()
-                )}
+                <h3>{nomeLoteria?.[0]?.nome === undefined ? (<h4>MEGA-SENA</h4>) : (nomeLoteria?.[0]?.nome.toUpperCase())}</h3>
                 <div>
-        <div></div>
-        <div className="button">
-          {resultadoConcurso.numeros &&
-            resultadoConcurso.numeros?.map((numbers) => {
-              return (
-                <button key={Math.random()}>
-                  {numbers}
-                </button>
-              );
-            })}
-        </div>
-        
-        
+                <div></div>
+                <Numbers_div>
+                  {resultadoConcurso.numeros && resultadoConcurso.numeros?.map((numbers) => {
+                    return (
+                      <ButtonNumber key={Math.random()}>
+                        {numbers}
+                      </ButtonNumber>
+                    );
+                  })}
+                </Numbers_div>
       </div>
                 <h4>Este sorteio é meramente ilustrativo e não possui nenhuma ligação com a CAIXA.</h4>
             </Main>
